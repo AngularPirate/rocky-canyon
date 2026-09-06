@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0C1014">
+<meta name="description" content="A 17-week base training block for Race to Robie Creek 2027 - running, strength and hip-safe loading built around a real schedule.">
+<title>Rocky Canyon</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
+
+<style>
+:root{
+  --bg:#E9EBEE;--panel:#FFF;--panel-2:#F3F5F7;--line:#D4D9DF;--soft:#E5E9ED;
+  --ink:#141A1F;--ink-2:#3D4750;--mute:#6B7681;
+  --gold:#A9700D;--gold-bg:#F7E9CB;--gold-ln:#DDBB6C;
+  --sage:#357056;--sage-bg:#DAEBE1;--sage-ln:#8CBBA3;
+  --blue:#295C87;--blue-bg:#D9E6F1;--blue-ln:#88AECB;
+  --clay:#9C4732;--clay-bg:#F4DED7;--clay-ln:#D49483;
+  --rest:#78838C;--rest-bg:#E8EBEE;--rest-ln:#C8CFD5;
+  --sh:0 1px 2px rgba(20,26,31,.05),0 6px 20px -12px rgba(20,26,31,.25);--nav:#FFF;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C1014;--panel:#151A20;--panel-2:#1B2128;--line:#293139;--soft:#222931;
+  --ink:#E5EAEF;--ink-2:#B2BCC5;--mute:#7F8B96;
+  --gold:#E3A93E;--gold-bg:#2E2513;--gold-ln:#5E4A1D;
+  --sage:#71B992;--sage-bg:#152D1E;--sage-ln:#2C5840;
+  --blue:#6DA9DA;--blue-bg:#132636;--blue-ln:#294A68;
+  --clay:#E29076;--clay-bg:#301811;--clay-ln:#67382A;
+  --rest:#8B959E;--rest-bg:#1C232A;--rest-ln:#313A43;
+  --sh:0 1px 2px rgba(0,0,0,.45),0 8px 24px -14px rgba(0,0,0,.85);--nav:#12171C;
+}}
+:root[data-theme="dark"]{
+  --bg:#0C1014;--panel:#151A20;--panel-2:#1B2128;--line:#293139;--soft:#222931;
+  --ink:#E5EAEF;--ink-2:#B2BCC5;--mute:#7F8B96;
+  --gold:#E3A93E;--gold-bg:#2E2513;--gold-ln:#5E4A1D;
+  --sage:#71B992;--sage-bg:#152D1E;--sage-ln:#2C5840;
+  --blue:#6DA9DA;--blue-bg:#132636;--blue-ln:#294A68;
+  --clay:#E29076;--clay-bg:#301811;--clay-ln:#67382A;
+  --rest:#8B959E;--rest-bg:#1C232A;--rest-ln:#313A43;
+  --sh:0 1px 2px rgba(0,0,0,.45),0 8px 24px -14px rgba(0,0,0,.85);--nav:#12171C;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+h1,h2,h3,h4,h5{font-family:Archivo,sans-serif;margin:0;text-wrap:balance;letter-spacing:-.012em}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eb{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mute)}
+button{font:inherit;color:inherit}
+.hd{position:sticky;top:0;z-index:40;background:var(--panel);border-bottom:1px solid var(--line)}
+.hd-in{max-width:600px;margin:0 auto;padding:9px 15px;display:flex;align-items:center;gap:11px}
+.hd .wk{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;line-height:1.1}
+.hd .ph{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.hd .rt{margin-left:auto;text-align:right}
+.hd .rt b{font-family:"IBM Plex Mono",monospace;font-size:17px;font-weight:600;color:var(--gold);display:block;line-height:1}
+.hd .rt span{font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--mute);letter-spacing:.09em;text-transform:uppercase}
+main{max-width:600px;margin:0 auto;padding:15px 15px 96px}
+.pane{display:none}.pane.on{display:block}
+.c{background:var(--panel);border:1px solid var(--line);border-radius:13px;box-shadow:var(--sh);margin-bottom:12px;overflow:hidden}
+.c-h{padding:13px 16px 11px;border-bottom:1px solid var(--soft)}
+.c-h h3{font-size:16px;font-weight:700}
+.c-h p{margin:3px 0 0;font-size:13px;color:var(--mute);line-height:1.4}
+.c-p{padding:15px 16px}
+.sess{padding:15px 16px;border-bottom:1px solid var(--soft)}
+.sess:last-child{border-bottom:0}
+.sess.done{background:var(--panel-2)}
+.sess-t{display:flex;gap:9px;align-items:flex-start}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  padding:3px 7px;border-radius:5px;white-space:nowrap;flex:0 0 auto;margin-top:2px}
+.k-easy{background:var(--sage-bg);color:var(--sage);border:1px solid var(--sage-ln)}
+.k-hard{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-ln)}
+.k-long{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-ln)}
+.k-str{background:var(--clay-bg);color:var(--clay);border:1px solid var(--clay-ln)}
+.k-rest{background:var(--rest-bg);color:var(--rest);border:1px solid var(--rest-ln)}
+.sess h4{font-size:16px;font-weight:600;line-height:1.28}
+.sess p{margin:6px 0 0;font-size:14px;color:var(--ink-2);line-height:1.45}
+.sess .tm{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mute);letter-spacing:.06em;margin-bottom:3px}
+.btn{display:block;width:100%;margin-top:12px;padding:13px;border-radius:10px;border:1.5px solid var(--line);
+  background:var(--panel);font-family:Archivo,sans-serif;font-size:14.5px;font-weight:600;cursor:pointer;transition:.13s}
+.btn:active{transform:scale(.985)}
+.btn.go{border-color:var(--sage);color:var(--sage)}
+.btn.is{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.hero{padding:17px 16px 16px;background:linear-gradient(160deg,var(--panel-2),var(--panel))}
+.hero .dt{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+.hero .dt b{font-family:Archivo,sans-serif;font-size:23px;font-weight:700}
+.hero .dt span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mute)}
+.strip{display:flex;gap:5px;margin-top:13px}
+.sq{flex:1;height:5px;border-radius:3px;background:var(--soft)}
+.sq.f{background:var(--sage)}.sq.t{background:var(--gold)}
+/* exercise table */
+.exs{margin-top:13px;border:1px solid var(--soft);border-radius:10px;overflow:hidden}
+.ex{display:grid;grid-template-columns:24px 1fr 66px;gap:9px;padding:11px 11px;align-items:start;border-bottom:1px solid var(--soft)}
+.ex:last-child{border-bottom:0}
+.ex.dn{background:var(--panel-2)}
+.ex.dn .exn{color:var(--mute);text-decoration:line-through}
+.exn{font-size:14.5px;font-weight:600;line-height:1.25}
+.exm{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--gold);margin-top:2px;letter-spacing:.02em}
+.exc{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.38}
+.exl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--sage);margin-top:3px}
+.exw{width:66px;padding:8px 6px;border:1px solid var(--line);border-radius:8px;background:var(--panel);
+  color:var(--ink);font-family:"IBM Plex Mono",monospace;font-size:15px;text-align:center}
+.exw:focus{outline:2px solid var(--gold);outline-offset:-1px}
+.tick{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:1px 0 0;border:1.5px solid var(--line);
+  border-radius:6px;background:var(--panel);cursor:pointer;position:relative;flex:0 0 auto}
+.tick:checked{background:var(--sage);border-color:var(--sage)}
+.tick:checked::after{content:"";position:absolute;left:6.5px;top:2.5px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.tick:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.exhd{display:flex;gap:8px;align-items:center;padding:9px 11px;background:var(--panel-2);border-bottom:1px solid var(--soft)}
+.exhd .eb{flex:1}
+/* log form */
+.lg{padding:14px 16px;background:var(--panel-2);border-top:1px solid var(--soft)}
+.rowf{display:flex;gap:9px;margin-bottom:10px}
+.fld{flex:1}
+.fld label{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:4px;font-weight:600}
+.fld input,.fld textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:var(--ink);font:inherit;font-size:16px}
+.fld textarea{font-size:15px;resize:vertical;min-height:54px;font-family:inherit}
+.fld input:focus,.fld textarea:focus{outline:2px solid var(--gold);outline-offset:-1px}
+.scale{display:flex;gap:5px}
+.sc{flex:1;padding:10px 0;border:1px solid var(--line);border-radius:8px;background:var(--panel);
+  font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;cursor:pointer;text-align:center}
+.sc.on{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.sc.on[data-h="0"],.sc.on[data-h="1"]{background:var(--sage);border-color:var(--sage);color:#fff}
+.sc.on[data-h="2"],.sc.on[data-h="3"]{background:var(--gold);border-color:var(--gold);color:#fff}
+.sc.on[data-h="4"]{background:var(--clay);border-color:var(--clay);color:#fff}
+.savd{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--sage);letter-spacing:.06em;margin-top:8px;height:12px}
+/* week */
+.dayr{display:grid;grid-template-columns:46px 1fr;border-bottom:1px solid var(--soft)}
+.dayr:last-child{border-bottom:0}
+.dayr.tdy{background:var(--gold-bg)}
+.dl{padding:13px 0 13px 14px;border-right:1px solid var(--soft)}
+.dl b{font-family:Archivo,sans-serif;font-size:13px;display:block}
+.dl span{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--mute)}
+.di{padding:11px 14px}
+.di .it{display:flex;gap:8px;align-items:flex-start;padding:7px 0;width:100%;background:none;border:0;text-align:left;cursor:pointer}
+.di .it b{font-size:14px;font-weight:600;line-height:1.3;flex:1}
+.di .it.dn b{color:var(--mute);text-decoration:line-through}
+.di .it .cv{color:var(--mute);flex:0 0 auto;margin-top:3px;transition:transform .18s}
+.di .it.op .cv{transform:rotate(180deg)}
+.di .it:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+.itd{display:none;padding:2px 0 12px 30px}
+.itd.op{display:block}
+.itd .tmz{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mute);letter-spacing:.06em;margin-bottom:5px}
+.itd p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.47}
+.exr{padding:10px 11px;border-bottom:1px solid var(--soft)}
+.exr:last-child{border-bottom:0}
+.mini{margin-top:11px;padding:9px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);
+  font-family:Archivo,sans-serif;font-size:13px;font-weight:600;cursor:pointer;width:100%}
+.mini.go{border-color:var(--sage);color:var(--sage)}
+.mini.is{background:var(--sage);border-color:var(--sage);color:#fff}
+.wknav{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--soft);background:var(--panel-2)}
+.wknav button{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);background:var(--panel);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.wknav button:disabled{opacity:.3}
+.wknav .mid{flex:1;text-align:center}
+.wknav .mid b{font-family:Archivo,sans-serif;font-size:14.5px;font-weight:700;display:block;line-height:1.2}
+.wknav .mid span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mute)}
+/* progress */
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line)}
+.st{background:var(--panel);padding:14px 10px;text-align:center}
+.st b{font-family:Archivo,sans-serif;font-size:24px;font-weight:700;display:block;line-height:1}
+.st span{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);display:block;margin-top:5px}
+.chart{padding:14px 16px 10px}
+.cbars{display:flex;align-items:flex-end;gap:3px;height:96px}
+.cb{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;min-width:0;position:relative}
+.cb .pl{background:var(--soft);border-radius:2px 2px 0 0}
+.cb .ac{background:var(--sage);border-radius:2px 2px 0 0;position:absolute;bottom:12px;left:0;right:0}
+.cb .lb{font-family:"IBM Plex Mono",monospace;font-size:8px;color:var(--mute);text-align:center;height:10px}
+.cb.now .lb{color:var(--gold);font-weight:600}
+.lgnd{display:flex;gap:14px;margin-top:9px;flex-wrap:wrap}
+.lgnd i{display:flex;align-items:center;gap:6px;font-style:normal;font-size:11.5px;color:var(--mute)}
+.lgnd i s{width:10px;height:10px;border-radius:3px;text-decoration:none}
+.hipr{display:flex;gap:2px;align-items:flex-end;height:44px;margin-top:6px}
+.hipr div{flex:1;border-radius:2px;min-width:2px}
+/* coach */
+.msgs{padding:14px 16px;display:flex;flex-direction:column;gap:11px;min-height:140px}
+.msg{max-width:88%;padding:11px 13px;border-radius:13px;font-size:14.5px;line-height:1.48;white-space:pre-wrap}
+.msg.u{align-self:flex-end;background:var(--ink);color:var(--panel);border-bottom-right-radius:4px}
+.msg.a{align-self:flex-start;background:var(--panel-2);border:1px solid var(--soft);border-bottom-left-radius:4px;color:var(--ink-2)}
+.qs{display:flex;gap:7px;flex-wrap:wrap;padding:0 16px 13px}
+.q{padding:8px 12px;border-radius:20px;border:1px solid var(--line);background:var(--panel);font-size:13px;cursor:pointer;color:var(--ink-2)}
+.ask{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--soft);background:var(--panel-2)}
+.ask input{flex:1;padding:11px 13px;border:1px solid var(--line);border-radius:22px;background:var(--panel);color:var(--ink);font:inherit;font-size:16px}
+.ask input:focus{outline:2px solid var(--gold);outline-offset:-1px}
+.ask button{width:44px;height:44px;border-radius:50%;border:0;background:var(--gold);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.ask button:disabled{opacity:.4}
+/* accordion */
+.ac-h{width:100%;display:flex;align-items:center;gap:10px;padding:15px 16px;background:none;border:0;cursor:pointer;text-align:left}
+.ac-h h3{font-size:15.5px;font-weight:600;flex:1}
+.ac-h svg{color:var(--mute);transition:transform .18s;flex:0 0 auto}
+.c.open .ac-h svg{transform:rotate(180deg)}
+.ac-b{display:none;padding:0 16px 16px;border-top:1px solid var(--soft);padding-top:14px}
+.c.open .ac-b{display:block}
+.ac-b h5{font-size:13.5px;font-weight:600;margin:15px 0 6px}
+.ac-b h5:first-child{margin-top:0}
+.ac-b p{margin:0 0 10px;font-size:14px;color:var(--ink-2);line-height:1.5}
+.ac-b ul{margin:0 0 11px;padding-left:19px;font-size:14px;color:var(--ink-2)}
+.ac-b li{padding:2.5px 0}
+.ac-b b{color:var(--ink)}
+.ac-b a{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:11px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:0 8px 6px 0;border-bottom:1px solid var(--line)}
+td{padding:7px 8px 7px 0;border-bottom:1px solid var(--soft);vertical-align:top;color:var(--ink-2)}
+td.k{color:var(--ink);font-weight:600}
+td.v{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+.scrl{overflow-x:auto}
+.note{border-left:3px solid var(--gold);padding:3px 0 3px 13px;margin:12px 0;font-size:13.8px;color:var(--ink-2);line-height:1.48}
+.note.red{border-color:var(--clay)}.note.grn{border-color:var(--sage)}
+.tri{display:grid;grid-template-columns:9px 1fr;gap:11px;padding:11px 12px;border-radius:9px;background:var(--panel-2);border:1px solid var(--soft);margin-bottom:8px;align-items:start}
+.tri i{width:9px;height:9px;border-radius:50%;margin-top:6px}
+.tri b{display:block;font-family:Archivo,sans-serif;font-size:13.5px}
+.tri span{font-size:13.3px;color:var(--ink-2);line-height:1.45}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:50;background:var(--nav);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.nv{max-width:600px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.nb{background:none;border:0;padding:9px 2px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--mute)}
+.nb.on{color:var(--gold)}
+.nb span{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+.sync{display:flex;align-items:center;gap:6px;justify-content:center;padding:9px 0 2px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--mute)}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--rest-ln)}.sdot.on{background:var(--sage)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<script>window.REVIEW=true;</script>
+<div style="background:var(--gold-bg);border-bottom:1px solid var(--gold-ln);padding:9px 15px;text-align:center;font-size:12.5px;color:var(--gold);line-height:1.4">
+<b>Review copy.</b> Read-only snapshot for feedback &mdash; logging and the AI coach live in the private version.
+</div>
+<div class="hd"><div class="hd-in">
+  <div><div class="wk" id="h-wk">—</div><div class="ph" id="h-ph">—</div></div>
+  <div class="rt"><b class="mono" id="h-cd">—</b><span>d to robie</span></div>
+</div></div>
+<main>
+  <div class="pane on" id="p-today"></div>
+  <div class="pane" id="p-week"></div>
+  <div class="pane" id="p-prog"></div>
+  <div class="pane" id="p-coach"></div>
+  <div class="pane" id="p-plan"></div>
+</main>
+<nav><div class="nv" id="nav"></div>
+  <div class="sync"><span class="sdot" id="sdot"></span><span id="smsg">review copy &middot; nothing saved</span></div>
+</nav>
+
+<script>
+/* ═══ LIFTING ═══════════════════════════════ */
+/* sch index = block-1. Starting loads are set from: DB bench 25s for 5–10 near max,
+   DB shoulder press 25s. Everything else scaled off that and deliberately conservative. */
+var LIFT={
+A:{n:"Strength A — upper bias",dur:"~50 min",tm:"5:30–6:20pm",
+ ex:[
+ {n:"DB bench press",s:["3×10","4×8","4×6","4×5"],w:"20 lb DBs",r:"90s",c:"Elbows ~45°, not flared. Touch the chest, no bounce."},
+ {n:"Chest-supported DB row",s:["3×10","4×8","4×6","4×5"],w:"20 lb DBs",r:"90s",c:"Pull to the hip, not the armpit. Pause a beat at the top."},
+ {n:"DB Romanian deadlift",s:["3×10","4×8","4×6","4×6"],w:"25 lb DBs",r:"90s",c:"Stop where your low back wants to round — that's your range, not your hamstrings'."},
+ {n:"Barbell hip thrust",s:["3×12","4×10","4×8","4×8"],w:"Empty 45 lb bar + pad",r:"75s",c:"Your single best hip exercise. Chin tucked, ribs down, squeeze one full second at the top."},
+ {n:"Lateral raise + hammer curl",s:["3×12 each","3×12","3×12","3×12"],w:"8 lb / 15 lb",r:"60s",c:"Superset — no rest between the two. Raise to shoulder height only."},
+ {n:"Side-lying abduction → monster walks",s:["3×15","3×15","3×20","3×20"],w:"Bodyweight, then band",r:"45s",c:"Never let the top leg drop past your body's midline."},
+ {n:"Dead bug + Pallof press",s:["3×10 each","3×10","3×12","3×12"],w:"Light band or cable",r:"45s",c:"Ribs pinned down. No sit-ups, ever."}]},
+B:{n:"Strength B — the heavy one",dur:"~55 min",tm:"5:30–6:25pm",
+ ex:[
+ {n:"Goblet squat",s:["3×10","4×8","4×6","4×5"],w:"30 lb DB or KB",r:"90s",c:"Stop at the depth where your pelvis stays neutral. Earn depth before you earn weight."},
+ {n:"Trap-bar deadlift",s:["3×8","4×6","4×5","4×5"],w:"95 lb (bar + 25/side)",r:"2 min",c:"High handles if your gym has them. No trap bar? Sumo stance or DBs at your sides."},
+ {n:"Rear-foot-elevated split squat",s:["3×8 each","3×8","3×6","3×6"],w:"Bodyweight → 15 lb DBs",r:"75s",c:"Static, not walking. Tune depth per side — they will not match, and that's fine."},
+ {n:"Seated DB overhead press",s:["3×10","4×8","4×6","4×5"],w:"20 lb DBs",r:"90s",c:"Ribs down. Don't arch your back to get it up."},
+ {n:"Lat pulldown",s:["3×10","4×8","4×6","4×6"],w:"70 lb",r:"90s",c:"Drive your elbows toward your back pockets."},
+ {n:"Slider hamstring curl",s:["3×6","3×8","3×8","3×8"],w:"Bodyweight",r:"60s",c:"Four seconds sliding out, hands help you back. This is Nordic curl prep."},
+ {n:"Copenhagen plank",s:["3×20s each","3×30s","3×30s","3×40s"],w:"Bent knee → long lever",r:"45s",c:"Bent knee for at least six weeks. Regress instantly if the groin pinches."}],
+ b4:[{n:"Pogo hops",s:["—","—","—","3×10"],w:"Bodyweight",r:"60s",c:"Stiff ankles, minimal knee bend, quick off the floor."},
+     {n:"Eccentric step-down",s:["—","—","—","3×8 each"],w:"Low box, bodyweight",r:"60s",c:"Four seconds down. This is what saves your quads on Robie's descent."}]},
+C:{n:"Strength C — short",dur:"~40 min",tm:"5:30–6:10pm",
+ ex:[
+ {n:"Incline DB press",s:["3×10","3×10","4×8","4×8"],w:"20 lb DBs",r:"75s",c:"Low incline, around 30°."},
+ {n:"Single-arm DB row",s:["3×10 each","3×10","4×8","4×8"],w:"25 lb DB",r:"60s",c:"Brace on a bench. Don't twist to finish the rep."},
+ {n:"Single-leg RDL",s:["3×8 each","3×8","3×8","3×8"],w:"15 lb DB",r:"60s",c:"Balance first, load second. Hips square to the floor."},
+ {n:"Low step-up",s:["3×10 each","3×10","3×10","3×10"],w:"Bodyweight → 15 lb DBs",r:"60s",c:"Knee-height box or lower. Drive through the heel, don't push off the back foot."},
+ {n:"Face pull + pushdown + curl",s:["3 rounds ×12","3×12","3×12","3×12"],w:"Light",r:"60s",c:"Giant set, no rest inside a round."},
+ {n:"Calf raise — straight then bent knee",s:["3×15 + 3×15","3×15","3×20","3×20"],w:"Bodyweight → 25 lb",r:"45s",c:"Robie descent insurance. Full range, pause at the bottom."},
+ {n:"Bird dog + side plank",s:["3×8 each + 3×25s","3×8","3×10","3×10"],w:"Bodyweight",r:"45s",c:""}]}};
+
+var BLKN=["Foundation · RPE 6–7","Build · RPE 7–8","Heavy · RPE 8","Heavy + eccentric · RPE 8"];
+
+/* ═══ PLAN ═══════════════════════════════════ */
+var PH=[{n:"Rebuild",w:"1–4",c:"var(--sage)",d:"Aerobic only. Strides from week 2. Learn the lifts and find your real squat depth."},
+ {n:"Load",w:"5–8",c:"var(--gold)",d:"Hill sprints — speed work with the impact removed. Volume climbs, weights climb."},
+ {n:"Threshold",w:"9–12",c:"var(--blue)",d:"Progression runs, then real tempo. Heavy strength block."},
+ {n:"Sharpen",w:"13–17",c:"var(--clay)",d:"Cruise intervals, eccentrics, trail. Finish ready to build."}];
+
+var HOCK=3; /* hockey starts week index 3 — week of Sep 28 */
+
+var W=[
+{f:"Learn the lifts",t:155,mi:15,p:0,b:1,noMon:1,
+ qa:["Rest — you ran Sunday","Back-to-back Sunday and Monday is exactly the thing to avoid. Labor Day is your first gym session instead, with all day to take your time."],
+ wed:["Easy — 30 min","First run of the block. Nothing but conversational."],
+ sat:["Easy — 65 min","Road or greenbelt. Rebuilding, not exploring yet."],sun:["Rest",""],
+ nt:"Week one is about walking into the gym three times, not about running. Watch the video on the Plan tab before Monday and use the empty bar for everything you're unsure of. Nobody is looking at you."},
+{f:"Strides begin",t:205,mi:20,p:0,b:1,
+ qa:["Easy 45 min + 4 × 20s strides","Strides at the end, flat ground. Build over 8s, hold, ease off. 60s walk between."],
+ wed:["Easy — 30 min",""],sat:["Easy — 70 min",""],sun:["Rest",""]},
+{f:"First real week",t:215,mi:21,p:0,b:1,
+ qa:["Easy 45 min + 6 × 20s strides",""],
+ wed:["Easy — 30 min",""],sat:["Easy — 80 min","Gel or chews past the hour."],sun:["Rest",""]},
+{f:"Down week · hockey starts",t:150,mi:14,p:0,b:1,dn:1,
+ qa:["Easy 35 min + 4 × 20s strides",""],wed:["Optional — skip it","Down week. Take the morning."],
+ sat:["Easy — 55 min",""],sun:["Rest",""],
+ nt:"Hockey starts this week. Tuesday mornings become PT plus a light primer, and Tuesday evening is now a counted hard session. Hold your lifting weights — no PRs in a down week."},
+{f:"Hill sprints enter",t:225,mi:22,p:1,b:2,
+ qa:["15 min easy → 3 × 8s hill sprints → 4 strides → 20 min easy","5–7% grade, ~98% effort, walk all the way down. Too short to accumulate damage, too steep to overstride."],
+ wed:["Easy — 30 min","Shakeout the morning after hockey. Genuinely easy."],
+ sat:["Easy — 85 min · first trail day","Take it to the foothills. Softer surface, and Robie's back half is dirt."],sun:["Rest",""]},
+{f:"Build",t:230,mi:22,p:1,b:2,
+ qa:["50 min with 4 × 8s hill sprints + 4 strides",""],wed:["Easy — 30 min",""],
+ sat:["Easy — 90 min · trail","Hike the steepest pitches on purpose. Power-hiking is a skill you train, not a failure."],sun:["Rest",""]},
+{f:"Calibration",t:230,mi:22,p:1,b:2,ky:1,
+ qa:["15 min easy → 20 min time trial → 10 min easy","Flat road, no hills, no watch-checking mid-effort. Hardest pace you'd hold for exactly 20. Every number here re-anchors to it."],
+ wed:["Easy — 30 min",""],sat:["Easy — 95 min · trail",""],sun:["Rest",""]},
+{f:"Down week",t:165,mi:16,p:1,b:2,dn:1,
+ qa:["Easy 40 min + 6 × 20s strides",""],wed:["Optional — skip it",""],sat:["Easy — 65 min",""],sun:["Rest",""]},
+{f:"Heavy block opens",t:245,mi:24,p:2,b:3,
+ qa:["50 min with 6 × 10s hill sprints + 4 strides",""],wed:["Easy — 35 min",""],
+ sat:["Easy — 100 min · trail","30–60g carbs an hour from here on. Practise eating on the move."],sun:["Rest",""],
+ nt:"Main lifts drop to 4 × 5–6 at RPE 8. This is where the running-economy benefit comes from — heavy, not pumpy. Add weight before you add reps now."},
+{f:"Progression runs",t:255,mi:25,p:2,b:3,
+ qa:["Progression run — 55 min","32 easy → 14 moderate → 9 comfortably hard. No stopping. Teaches you to hold form as fatigue arrives — the whole skill Robie tests."],
+ wed:["Easy — 35 min",""],sat:["Easy — 105 min · trail",""],sun:["Rest",""]},
+{f:"First threshold",t:260,mi:25,p:2,b:3,ky:1,
+ qa:["15 min wu → 2 × 8 min threshold (2 min jog) → 4 strides → cd","Ten-word-answer effort, ~8:25–8:40 if the TT agreed. Flat. Icy? Treadmill at 1% — do not run threshold on ice."],
+ wed:["Easy — 35 min",""],sat:["Easy — 110 min · trail",""],sun:["Rest",""]},
+{f:"Down week · Thanksgiving",t:165,mi:16,p:2,b:3,dn:1,
+ qa:["Easy 40 min + 6 × 20s strides",""],wed:["Optional — skip it",""],
+ thu:["Thanksgiving — 55 min easy","Club if it's on, solo if not. Either way you get to eat."],
+ sat:["Easy — 70 min",""],sun:["Rest",""]},
+{f:"Sharpening",t:260,mi:25,p:3,b:4,
+ qa:["15 min wu → 18 min continuous tempo → 12 min cd","One unbroken block. Mentally harder than the intervals were."],
+ wed:["Easy — 35 min",""],sat:["Easy — 110 min · trail",""],sun:["Rest",""],
+ nt:"Wednesday's lift adds pogo hops and eccentric step-downs. Quad armour for a descent five months out that will hurt you if you skip it."},
+{f:"Cruise intervals",t:270,mi:26,p:3,b:4,
+ qa:["15 min wu → 3 × 7 min threshold (90s jog) → cd","Short recoveries on purpose — you never fully clear. That's the point."],
+ wed:["Easy — 40 min",""],sat:["115 min, last 15 moderate · trail","First taste of finishing long with intent."],sun:["Rest",""]},
+{f:"Peak week",t:280,mi:27,p:3,b:4,ky:1,
+ qa:["15 min wu → 20 min continuous tempo → cd","Biggest quality block of the base. Cold morning: extend the warm-up to 18 min rather than adding strides — muscle temp is worth real percentage points below freezing."],
+ wed:["Easy — 40 min",""],sat:["Easy — 120 min · trail","Two hours. Longer than Robie will take you."],sun:["Rest",""]},
+{f:"Down week · holidays",t:165,mi:16,p:3,b:4,dn:1,
+ qa:["Easy 40 min + 6 × 20s strides",""],wed:["Optional — skip it",""],
+ thu:["55 min easy","Club if it runs Christmas week; solo if not."],sat:["Easy — 70 min",""],sun:["Rest",""],
+ nt:"Travel week. Gym closed? The ten-minute minimum in a hotel room still counts. Never miss twice."},
+{f:"Handoff to the build",t:280,mi:27,p:3,b:4,
+ qa:["15 min wu → 4 × 6 min threshold (90s jog) → cd",""],wed:["Easy — 40 min",""],
+ sat:["120 min, hilly trail","Robie-adjacent terrain if the roads allow. Steady up, controlled down."],
+ sun:["Rest","Take stock: 17 weeks, ~50 lifts, a body that can start a real build."]}];
+
+var THU=["Run club — Military Reserve","Easy, hilly, conversational. Effort governs, not pace — this climb makes an easy run look hard on Strava. Let it. Practise power-hiking the steep pitch."];
+var DAY=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+var DAYF=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+var S=new Date(2026,8,7),RACE=new Date(2027,3,17);
+var T=new Date();T.setHours(0,0,0,0);
+var CUR=Math.max(0,Math.min(16,Math.floor((T-S)/6048e5)));
+var _raw=(T-S)/864e5,PRE=_raw<0,POST=_raw>=119;
+var TD=PRE?0:(POST?6:Math.floor(_raw)%7);
+var LIVE=!PRE&&!POST;
+function ad(d,n){var x=new Date(d.getTime());x.setDate(x.getDate()+n);return x}
+function ws(i){return ad(S,i*7)}
+function ds(d){return (d.getMonth()+1)+"/"+d.getDate()}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+
+function lifts(sk,blk){var L=LIFT[sk],a=L.ex.slice();
+ if(sk==="B"&&blk===4)a=a.concat(L.b4); return a}
+
+function sess(i,d){
+ var w=W[i],o=[],id="w"+i+"d"+d,hk=i>=HOCK;
+ var qk=i<4?["easy","k-easy"]:["quality","k-hard"];
+ if(d===0){
+  if(w.noMon)o.push({r:1,c:"rest",k:"k-rest",h:w.qa[0],p:w.qa[1],t:"AM"});
+  else o.push({id:id+"r",c:qk[0],k:qk[1],h:w.qa[0],p:w.qa[1],t:"AM",tm:"out 5:20 · showered by 6:50"});
+  o.push({id:id+"s",c:"strength",k:"k-str",h:LIFT.A.n,p:"",t:"PM",tm:LIFT.A.tm+" · "+LIFT.A.dur,L:"A",blk:w.b});}
+ else if(d===1){
+  o.push({id:id+"p",c:hk?"primer":"PT",k:"k-rest",h:hk?"PT + primer — 40 min":"PT / hip session — 40 min",
+   p:hk?"Hip session first: isometrics, abduction, Copenhagen, single-leg control. Then wake the system up for tonight — bodyweight goblet squats, glute bridges, band walks, a few skips and pogos. RPE 6 ceiling. Walk out looser than you walked in."
+      :"Isometrics, abduction, Copenhagen, single-leg control. Bring the plan — your PT should see the depth cap and the flare log.",t:"AM",tm:"5:50–6:30am"});
+  if(hk)o.push({id:id+"h",c:"hockey",k:"k-hard",h:"Hockey",p:"Tonight is a hard session and it counts as one. Nothing else hard today — this morning exists to make the game go better, not to compete with it.",t:"PM"});
+  else o.push({id:id+"t",c:"technique",k:"k-rest",h:"Technique — 20 min (optional)",p:"No hockey yet, so use the evening. Empty bar or light dumbbells, practise the squat, hinge and press patterns you were unsure about Monday. Film one set from the side and compare it to the video.",t:"PM"});}
+ else if(d===2){
+  var op=/optional|skip/i.test(w.wed[0]);
+  o.push(op?{r:1,c:"rest",k:"k-rest",h:w.wed[0],p:w.wed[1],t:"AM"}
+           :{id:id+"r",c:"easy",k:"k-easy",h:w.wed[0],p:(w.wed[1]?w.wed[1]+" ":"")+"Optional fourth run — skip it freely if the legs are flat.",t:"AM",tm:"out 5:50 · showered by 6:50"});
+  o.push({id:id+"s",c:"strength",k:"k-str",h:LIFT.B.n,p:"",t:"PM",tm:LIFT.B.tm+" · "+LIFT.B.dur,L:"B",blk:w.b});}
+ else if(d===3){var x=w.thu||THU;
+  o.push({id:id+"r",c:"easy",k:"k-easy",h:x[0],p:x[1],t:"AM",tm:"leave 5:35 · run 5:50–7:00 · home by 7:30"});}
+ else if(d===4){
+  o.push({r:1,c:"rest",k:"k-rest",h:"Rest",p:"Nothing. The long run is tomorrow.",t:"AM"});
+  o.push({id:id+"s",c:"strength",k:"k-str",h:LIFT.C.n,p:"",t:"PM",tm:LIFT.C.tm+" · "+LIFT.C.dur,L:"C",blk:w.b});}
+ else if(d===5){
+  o.push({id:id+"r",c:"long",k:"k-long",h:w.sat[0],
+   p:(w.sat[1]?w.sat[1]+" ":"")+"Weekend flexes — this can move to Sunday. If it does, Monday goes fully off and that week's quality work rides the back of the long run: last 15–20 min lifted to moderate.",t:"AM",tm:"start by 7:00 — earlier is better"});}
+ else{
+  o.push({id:id+"r",c:"rest",k:"k-rest",h:"Rest — or the long run",
+   p:"Sunday is off by default: Saturday long → Sunday rest → Monday quality is what keeps three hard efforts apart. If Saturday didn't happen, today is the long run and Monday goes off instead. Tick this either way.",t:"AM"});}
+ return o;
+}
+
+/* ═══ STATE ═══════════════════════════════════ */
+var st={checks:{},days:{},lift:{}},ref=null,tmr=null,VIEW=CUR;
+function lread(){try{return JSON.parse(localStorage.getItem("rc3")||"null")}catch(e){return null}}
+function lwrite(){try{localStorage.setItem("rc3",JSON.stringify(st))}catch(e){}}
+var _l=lread();if(_l&&_l.checks)st={checks:_l.checks||{},days:_l.days||{},lift:_l.lift||{}};
+function save(){lwrite();if(!ref)return;clearTimeout(tmr);
+ tmr=setTimeout(function(){ref.set({checks:st.checks,days:st.days,lift:st.lift,updated:new Date().toISOString()}).catch(function(){})},700)}
+function lastW(i,sk,j){for(var k=i-1;k>=0;k--){var v=st.lift["w"+k+sk+j];if(v&&v.w)return{w:v.w,k:k}}return null}
+
+/* ═══ TODAY ═══════════════════════════════════ */
+function exHTML(i,o){
+ var arr=lifts(o.L,o.blk),h='<div class="exs"><div class="exhd"><span class="eb">Block '+o.blk+' · RPE '+["6–7","7–8","8","8"][o.blk-1]+'</span><span class="eb" style="white-space:nowrap">lb</span></div>';
+ arr.forEach(function(x,j){
+  var key="w"+i+o.L+j,v=st.lift[key]||{},lw=lastW(i,o.L,j);
+  h+='<div class="ex'+(v.d?" dn":"")+'"><input type="checkbox" class="tick" data-ex="'+key+'"'+(v.d?" checked":"")+'>'+
+   '<div><div class="exn">'+esc(x.n)+'</div><div class="exm">'+esc(x.s[o.blk-1])+' · '+esc(x.r)+' rest</div>'+
+   (x.c?'<div class="exc">'+esc(x.c)+'</div>':'')+
+   (lw?'<div class="exl">last: '+esc(lw.w)+' lb · wk '+(lw.k+1)+'</div>':'<div class="exl">start: '+esc(x.w)+'</div>')+
+   '</div><input class="exw" type="number" inputmode="decimal" data-exw="'+key+'" value="'+esc(v.w||"")+'" placeholder="—"></div>'});
+ return h+'</div>';
+}
+function rToday(){
+ var e=document.getElementById("p-today");
+ var i=CUR,d=TD,items=sess(i,d),dt=ad(ws(i),d),w=W[i];
+ var h='';
+ if(PRE)h+='<div class="c c-p" style="background:var(--gold-bg);border-color:var(--gold-ln)"><div class="eb" style="color:var(--gold)">Day one</div><p style="margin:5px 0 0;font-size:14.5px;color:var(--ink-2);line-height:1.5">The block opens <b>Monday, September 7</b>. This is what that day looks like — nothing to tick yet.</p></div>';
+ if(POST)h+='<div class="c c-p" style="background:var(--sage-bg);border-color:var(--sage-ln)"><div class="eb" style="color:var(--sage)">Block complete</div><p style="margin:5px 0 0;font-size:14.5px;color:var(--ink-2);line-height:1.5">Seventeen weeks done. The Robie build starts now — check the Plan tab for what comes next.</p></div>';
+ h+='<div class="c"><div class="hero"><div class="dt"><b>'+DAYF[d]+'</b><span class="mono">'+ds(dt)+'</span>'+
+  (i===0&&d===0?'<span class="mono" style="color:var(--gold)">Labor Day</span>':'')+'</div>'+
+  '<div class="eb">Week '+(i+1)+' · '+esc(w.f)+(w.dn?' · down week':'')+'</div>'+
+  '<div class="strip">'+[0,1,2,3,4,5,6].map(function(x){
+   var ss=sess(i,x).filter(function(o){return o.id}),dn=ss.length&&ss.every(function(o){return st.checks[o.id]});
+   return '<div class="sq '+(dn?'f':(x===d?'t':''))+'"></div>'}).join("")+'</div></div>';
+ items.forEach(function(o){
+  var dn=o.id&&st.checks[o.id];
+  h+='<div class="sess'+(dn?' done':'')+'"><div class="sess-t"><span class="chip '+o.k+'">'+esc(o.c)+'</span>'+
+   '<div style="flex:1;min-width:0"><div class="tm">'+o.t+(o.tm?' · '+esc(o.tm):'')+'</div><h4>'+esc(o.h)+'</h4>'+
+   (o.p?'<p>'+esc(o.p)+'</p>':'')+'</div></div>'+
+   (o.L?exHTML(i,o):'')+
+   (o.id?'<button class="btn '+(dn?'is':'go')+'" data-done="'+o.id+'">'+(dn?'✓ Done':'Mark done')+'</button>':'')+'</div>'});
+ if(w.nt)h+='<div class="sess" style="background:var(--panel-2)"><div class="eb" style="color:var(--gold);margin-bottom:5px">This week</div><p style="margin:0;font-size:14px;color:var(--ink-2);line-height:1.5">'+esc(w.nt)+'</p></div>';
+ h+='</div>';
+ if(!LIVE){e.innerHTML=h;return}
+ var key="w"+i+"d"+d,v=st.days[key]||{};
+ h+='<div class="c"><div class="c-h"><h3>Log the day</h3><p>Hip score is the one that matters. 0 = nothing, 4 = red light.</p></div><div class="lg">'+
+  '<div class="rowf"><div class="fld"><label>Miles</label><input type="number" step="0.1" inputmode="decimal" id="f-mi" value="'+esc(v.mi!=null?v.mi:"")+'"></div>'+
+  '<div class="fld"><label>Minutes</label><input type="number" inputmode="numeric" id="f-min" value="'+esc(v.min!=null?v.min:"")+'"></div></div>'+
+  '<div class="fld" style="margin-bottom:10px"><label>Hip — worst today</label><div class="scale" id="f-hip">'+
+  [0,1,2,3,4].map(function(n){return '<button class="sc'+(v.hip===n?" on":"")+'" data-h="'+n+'">'+n+'</button>'}).join("")+'</div></div>'+
+  '<div class="fld" style="margin-bottom:10px"><label>How it felt — 1 rough, 5 great</label><div class="scale" id="f-feel">'+
+  [1,2,3,4,5].map(function(n){return '<button class="sc'+(v.feel===n?" on":"")+'" data-f="'+n+'">'+n+'</button>'}).join("")+'</div></div>'+
+  '<div class="fld"><label>Notes</label><textarea id="f-note" placeholder="Weather, how the legs felt, anything the coach should know…">'+esc(v.note||"")+'</textarea></div>'+
+  '<div class="savd" id="f-saved"></div></div></div>';
+ e.innerHTML=h;
+}
+
+/* ═══ WEEK ════════════════════════════════════ */
+var OPEN={};
+function exRef(i,o){
+ var arr=lifts(o.L,o.blk);
+ return '<div class="exs" style="margin-top:9px">'+
+  '<div class="exhd"><span class="eb">Block '+o.blk+' · RPE '+["6–7","7–8","8","8"][o.blk-1]+'</span></div>'+
+  arr.map(function(x,j){
+   var lw=lastW(i,o.L,j),v=st.lift["w"+i+o.L+j]||{};
+   return '<div class="exr"><div class="exn">'+esc(x.n)+'</div>'+
+    '<div class="exm">'+esc(x.s[o.blk-1])+' · '+esc(x.r)+' rest</div>'+
+    (x.c?'<div class="exc">'+esc(x.c)+'</div>':'')+
+    '<div class="exl">'+(v.w?'logged: '+esc(v.w)+' lb':(lw?'last: '+esc(lw.w)+' lb · wk '+(lw.k+1):'start: '+esc(x.w)))+'</div></div>'}).join("")+
+  '</div><div class="exc" style="padding:8px 2px 0">Log the weights on the Today tab when you are in the gym.</div>';
+}
+function rWeek(){
+ var i=VIEW,w=W[i],a=ws(i),b=ad(a,6);
+ var h='<div class="c"><div class="wknav">'+
+  '<button id="wprev"'+(i===0?" disabled":"")+' aria-label="Previous week"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>'+
+  '<div class="mid"><b>Week '+(i+1)+' · '+esc(w.f)+'</b><span>'+ds(a)+'–'+ds(b)+' · '+w.t+" min · ~"+w.mi+' mi</span></div>'+
+  '<button id="wnext"'+(i===16?" disabled":"")+' aria-label="Next week"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button></div>';
+ for(var d=0;d<7;d++){
+  var it=sess(i,d),td=(i===CUR&&d===TD);
+  h+='<div class="dayr'+(td?" tdy":"")+'"><div class="dl"><b>'+DAY[d]+'</b><span class="mono">'+ds(ad(a,d))+'</span></div><div class="di">';
+  it.forEach(function(o,xi){var dn=o.id&&st.checks[o.id],did="x"+i+"_"+d+"_"+xi,op=OPEN[did];
+   h+='<button class="it'+(dn?" dn":"")+(op?" op":"")+'" data-tog="'+did+'" aria-expanded="'+(!!op)+'">'+
+    '<span class="chip '+o.k+'">'+esc(o.c)+'</span><b>'+esc(o.h)+'</b>'+
+    '<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>'+
+    '<div class="itd'+(op?" op":"")+'" id="'+did+'">'+
+     (o.tm?'<div class="tmz">'+o.t+' · '+esc(o.tm)+'</div>':'<div class="tmz">'+o.t+'</div>')+
+     (o.p?'<p>'+esc(o.p)+'</p>':'')+
+     (o.L?exRef(i,o):'')+
+     (o.id?'<button class="mini '+(dn?'is':'go')+'" data-done="'+o.id+'">'+(dn?'✓ Done':'Mark done')+'</button>':'')+
+    '</div>'});
+  h+='</div></div>'}
+ if(w.nt)h+='<div style="padding:13px 16px;background:var(--panel-2);border-top:1px solid var(--soft)"><div class="eb" style="color:var(--gold);margin-bottom:4px">Note</div><p style="margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.47">'+esc(w.nt)+'</p></div>';
+ document.getElementById("p-week").innerHTML=h+'</div>';
+ document.getElementById("wprev").onclick=function(){if(VIEW>0){VIEW--;OPEN={};rWeek()}};
+ document.getElementById("wnext").onclick=function(){if(VIEW<16){VIEW++;OPEN={};rWeek()}};
+}
+document.getElementById("p-week").addEventListener("click",function(e){
+ var d=e.target.closest("[data-done]");
+ if(d){var k=d.dataset.done;if(st.checks[k])delete st.checks[k];else st.checks[k]=true;save();rWeek();rToday();return}
+ var t=e.target.closest("[data-tog]");
+ if(t){var id=t.dataset.tog;
+  if(OPEN[id])delete OPEN[id];else OPEN[id]=1;
+  t.classList.toggle("op",!!OPEN[id]);t.setAttribute("aria-expanded",!!OPEN[id]);
+  var body=document.getElementById(id);if(body)body.classList.toggle("op",!!OPEN[id]);}
+});
+
+/* ═══ PROGRESS ════════════════════════════════ */
+function rProg(){
+ var done=0,tot=0,mi=0,hips=[],vol=0;
+ for(var i=0;i<17;i++)for(var d=0;d<7;d++){
+  sess(i,d).forEach(function(o){if(o.id){tot++;if(st.checks[o.id])done++}});
+  var v=st.days["w"+i+"d"+d];if(v){if(v.mi)mi+=+v.mi;if(v.hip!=null&&i<=CUR)hips.push(v.hip)}}
+ var streak=0,end=PRE?-1:CUR*7+TD;
+ for(var k=end;k>=0;k--){var wi=Math.floor(k/7),di=k%7,ss=sess(wi,di).filter(function(o){return o.id});
+  if(!ss.length)continue;
+  if(ss.every(function(o){return st.checks[o.id]}))streak++;else{if(k===end)continue;break}}
+ var mx=Math.max.apply(null,W.map(function(x){return x.t}));
+ var bars=W.map(function(x,i){var act=0;
+  for(var d=0;d<7;d++){var v=st.days["w"+i+"d"+d];if(v&&v.min)act+=+v.min}
+  return '<div class="cb'+(i===CUR?" now":"")+'" title="Week '+(i+1)+': planned '+x.t+' min'+(act?", logged "+act:"")+'">'+
+   '<div class="pl" style="height:'+Math.round(x.t/mx*72)+'px"></div>'+
+   (act?'<div class="ac" style="height:'+Math.round(Math.min(act,mx)/mx*72)+'px"></div>':'')+
+   '<div class="lb">'+(i+1)+'</div></div>'}).join("");
+ var HC=["var(--sage)","var(--sage)","var(--gold)","var(--gold)","var(--clay)"];
+ var hip=hips.slice(-42).map(function(n){return '<div style="height:'+(8+n*9)+'px;background:'+HC[n]+'"></div>'}).join("");
+ var pct=tot?Math.round(done/tot*100):0;
+ document.getElementById("p-prog").innerHTML=
+ '<div class="c"><div class="stats"><div class="st"><b>'+done+'</b><span>sessions done</span></div>'+
+  '<div class="st"><b style="color:var(--gold)">'+streak+'</b><span>day streak</span></div>'+
+  '<div class="st"><b>'+(mi?mi.toFixed(0):0)+'</b><span>miles logged</span></div></div></div>'+
+ '<div class="c"><div class="c-h"><h3>Volume</h3><p>Grey is planned, green is what you logged. '+pct+'% of all sessions ticked.</p></div>'+
+  '<div class="chart"><div class="cbars">'+bars+'</div><div class="lgnd"><i><s style="background:var(--soft)"></s>planned minutes</i><i><s style="background:var(--sage)"></s>logged</i></div></div></div>'+
+ '<div class="c"><div class="c-h"><h3>Hip trend</h3><p>'+(hips.length?'Last '+Math.min(hips.length,42)+' logged days. Two ambers in a row means hold. Any red means back off a phase and tell your PT.':'Nothing logged yet — score your hip on the Today tab and this fills in.')+'</p></div>'+
+  (hips.length?'<div class="chart"><div class="hipr">'+hip+'</div></div>':'')+'</div>';
+}
+
+/* ═══ COACH ═══════════════════════════════════ */
+var CHAT=[],SAMPLE=null,BUSY=false;
+var QS=["Long run slipped to Sunday — what now?","Is this weight too light?","How do I pace Robie?","My hip felt off after hockey"];
+function rCoach(){
+ if(window.REVIEW){document.getElementById("p-coach").innerHTML='<div class="c"><div class="c-h"><h3>Ask the coach</h3><p>Not part of this review copy.</p></div><div class="c-p" style="font-size:14.5px;color:var(--ink-2);line-height:1.55">In the live version this tab is a coach that gets the whole plan, the schedule constraints, the hip rules, and every logged session and lifting weight handed to it with each question &mdash; so <i>&ldquo;my hip was a 3 after hockey, should I still do Wednesday?&rdquo;</i> gets an answer grounded in what actually happened, not a generic one.</div></div>';return}
+ document.getElementById("p-coach").innerHTML='<div class="c"><div class="c-h"><h3>Ask the coach</h3><p>Knows the plan, your schedule, your hip rules and everything you have logged — including the weights you have been putting up. No memory between questions, so give it detail.</p></div>'+
+ '<div class="msgs" id="msgs">'+(CHAT.length?CHAT.map(function(m){return '<div class="msg '+m.r+'">'+esc(m.t)+'</div>'}).join(""):
+  '<div class="msg a">Ask me anything — swapping days, a niggle, whether a weight is too light, how to pace something. I have your logs in front of me.</div>')+'</div>'+
+ (CHAT.length?'':'<div class="qs">'+QS.map(function(q){return '<button class="q">'+esc(q)+'</button>'}).join("")+'</div>')+
+ '<div class="ask"><input id="qin" placeholder="Ask something…" autocomplete="off"><button id="qgo" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button></div></div>';
+ document.querySelectorAll("#p-coach .q").forEach(function(b){b.onclick=function(){ask(b.textContent)}});
+ document.getElementById("qgo").onclick=function(){var v=document.getElementById("qin").value.trim();if(v)ask(v)};
+ document.getElementById("qin").onkeydown=function(e){if(e.key==="Enter"){var v=this.value.trim();if(v)ask(v)}};
+}
+function ctx(){
+ var i=CUR,w=W[i],lines=[],lw=[];
+ for(var k=Math.max(0,i-2);k<=i;k++)for(var d=0;d<7;d++){var v=st.days["w"+k+"d"+d];if(!v)continue;
+  lines.push("W"+(k+1)+" "+DAY[d]+": "+(v.mi?v.mi+"mi ":"")+(v.min?v.min+"min ":"")+(v.hip!=null?"hip"+v.hip+" ":"")+(v.feel?"felt"+v.feel+"/5 ":"")+(v.note||""))}
+ ["A","B","C"].forEach(function(sk){lifts(sk,w.b).forEach(function(x,j){var p=lastW(i+1,sk,j);if(p)lw.push(sk+" "+x.n+": "+p.w+" lb (wk "+(p.k+1)+")")})});
+ return "You are Jared's running and strength coach. Answer in 2–4 sentences, direct and specific. No hedging, no bullet lists unless asked. If something is a bad idea, say so plainly.\n\n"+
+ "ATHLETE: 28, Boise ID. Bilateral hip labral tears (2023, non-surgical, weekly PT). Robie Creek April 2026 in 2:04 (13.1mi, 2100ft up and down) — about a 1:53 flat half, VDOT 39 — then a long break. NEW to consistent lifting and self-describes as weak: started at 20–25 lb dumbbells for pressing. Goals in order: crush the Robie PR April 17 2027, first marathon, then trail ultras.\n"+
+ "SCHEDULE: runs mornings only, showered and ready by 7am, out 5:20 on key days. Remote work 7:30am–5/5:30pm MT. Thursday 5:50–7am run club at Military Reserve (hilly trail, easy). Hockey Tuesday nights starting the week of Sep 28 — counted as hard, and NOTHING hard Tuesday mornings (PT + light primer only, to loosen him up for the game). Gym 5–10 min away, evenings.\n"+
+ "WEEK: Mon quality run AM + Strength A (upper bias) PM / Tue PT+primer AM + hockey PM / Wed optional easy 30-40min shakeout AM + Strength B (heavy lower) PM / Thu run club AM / Fri rest AM + Strength C (short) PM / Sat long run / Sun REST. Weekends variable: long run can move to Sunday, in which case Monday goes fully off and the quality work rides the back of the long run.\n"+
+ "RULE THAT GOVERNS EVERYTHING: the quality run, hockey and the long run never sit within 24h of each other.\n"+
+ "PACES: easy 10:15–11:00 now, 9:45–10:30 by Dec. Threshold 8:25–8:40. Hip rule: joint pain ≤2/10 green, 2–4 hold, >4 or clicking/night pain/next-morning pain = regress a phase.\n"+
+ "LIFTING: double progression. Hit the top of the rep range on every working set two sessions running, then +5 lb upper / +10 lb lower and back to the bottom of the range. Depth capped at pelvis-neutral on all squats and hinges.\n"+
+ "NOW: week "+(i+1)+" of 17 ("+w.f+"), phase "+PH[w.p].n+", block "+w.b+" lifting ("+BLKN[w.b-1]+"), "+w.t+" planned minutes (~"+w.mi+" mi). Today is "+T.toDateString()+".\n"+
+ "THIS WEEK: Mon — "+w.qa[0]+". Wed — "+w.wed[0]+". Thu — "+(w.thu||THU)[0]+". Sat — "+w.sat[0]+". Sun — "+w.sun[0]+".\n"+
+ (lw.length?"CURRENT LIFTING WEIGHTS:\n"+lw.join("\n")+"\n":"CURRENT LIFTING WEIGHTS: none logged yet.\n")+
+ (lines.length?"RECENT LOG:\n"+lines.join("\n")+"\n":"RECENT LOG: nothing logged yet.\n");
+}
+async function ask(q){
+ if(BUSY)return;BUSY=true;CHAT.push({r:"u",t:q});rCoach();
+ var box=document.getElementById("msgs");document.getElementById("qgo").disabled=true;
+ var el=document.createElement("div");el.className="msg a";el.textContent="Thinking…";
+ box.appendChild(el);box.scrollTop=box.scrollHeight;
+ if(!SAMPLE){try{SAMPLE=window.claude&&claude.use?await claude.use("sample"):null}catch(e){SAMPLE=null}}
+ if(!SAMPLE){el.textContent="The coach isn't available in this view. Everything else still works.";BUSY=false;
+  document.getElementById("qgo").disabled=false;return}
+ try{var r=await SAMPLE(ctx()+"\nQUESTION: "+q,{modelTier:"default",onText:function(o){el.textContent=o.text;box.scrollTop=box.scrollHeight}});
+  CHAT.push({r:"a",t:r.text})}
+ catch(e){CHAT.push({r:"a",t:(e&&e.text)||"Couldn't reach the coach just then. Try again in a moment."})}
+ BUSY=false;rCoach();var b2=document.getElementById("msgs");b2.scrollTop=b2.scrollHeight;
+}
+
+/* ═══ PLAN ════════════════════════════════════ */
+function acc(t,b,o){return '<div class="c'+(o?" open":"")+'"><button class="ac-h"><h3>'+t+'</h3>'+
+ '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="ac-b">'+b+'</div></div>'}
+function liftTable(sk){var L=LIFT[sk],a=L.ex.concat(L.b4||[]);
+ return '<div class="scrl"><table><tr><th>Exercise</th><th>Blk 1</th><th>Blk 3</th><th>Start</th></tr>'+
+ a.map(function(x){return '<tr><td class="k">'+esc(x.n)+'</td><td class="v">'+esc(x.s[0])+'</td><td class="v">'+esc(x.s[2])+'</td><td class="v">'+esc(x.w)+'</td></tr>'}).join("")+'</table></div>'}
+
+function rPlan(){
+ document.getElementById("p-plan").innerHTML=
+ acc("Start here — learning to lift",
+  '<p>This is the weak spot, so treat week one as a skills week, not a training week. Three trips to the gym is the whole goal.</p>'+
+  '<h5>Watch this first</h5>'+
+  '<p><b><a href="https://www.youtube.com/watch?v=fvd8qX6Xjnw" target="_blank" rel="noopener">Jeff Nippard — The Ultimate Beginner\'s Guide to Lifting</a></b><br>One video, covers form on the main patterns plus how to choose a weight and how to progress. Nippard is a science communicator rather than a hype guy, which will suit how you think.</p>'+
+  '<h5>Then these two, before your first Wednesday</h5>'+
+  '<p>Squat and deadlift are the two lifts where your hips actually matter, so spend the extra twenty minutes:</p>'+
+  '<ul><li><a href="https://www.youtube.com/watch?v=bs_Ej32IYgo" target="_blank" rel="noopener">Alan Thrall — How To Squat</a></li>'+
+  '<li><a href="https://www.youtube.com/watch?v=4b4_ZT0yB1I" target="_blank" rel="noopener">Alan Thrall — 3 Squat Tips</a></li></ul>'+
+  '<div class="note"><b>The one thing to take from all of it:</b> stop the squat where your low back starts to round. That point is your bony end range, and it is lower for you than for most people. Everything else is detail.</div>'+
+  '<h5>Rules for the first four weeks</h5>'+
+  '<ul><li><b>Leave 3–4 reps in the tank on every set.</b> If you could have done ten more, add weight next set. If the last two were a grind, take weight off.</li>'+
+  '<li><b>Film one set from the side, each session.</b> Not for social media — so you can see the depth you actually hit versus the depth you think you hit.</li>'+
+  '<li><b>The empty bar is a legitimate weight.</b> It is 45 lb and it is where you learn the pattern.</li>'+
+  '<li><b>Log every weight in the app.</b> Next week it shows you what you did last time, which is the entire mechanism of getting stronger.</li></ul>',1)+
+
+ acc("The week",
+  '<div class="scrl"><table><tr><th>Day</th><th>Morning</th><th>Evening</th></tr>'+
+  '<tr><td class="k">Mon</td><td><b>Quality run</b><br><span class="mono" style="font-size:11px">out 5:20</span></td><td>Strength A · upper<br><span class="mono" style="font-size:11px">5:30–6:20pm</span></td></tr>'+
+  '<tr><td class="k">Tue</td><td>PT + primer<br><span class="mono" style="font-size:11px">5:50–6:30am</span></td><td><b>Hockey</b><br><span class="mono" style="font-size:11px">from Sep 28</span></td></tr>'+
+  '<tr><td class="k">Wed</td><td>Easy 30–40 <i>(optional)</i><br><span class="mono" style="font-size:11px">out 5:50</span></td><td>Strength B · heavy<br><span class="mono" style="font-size:11px">5:30–6:25pm</span></td></tr>'+
+  '<tr><td class="k">Thu</td><td><b>Run club</b><br><span class="mono" style="font-size:11px">leave 5:35 · home 7:30</span></td><td>—</td></tr>'+
+  '<tr><td class="k">Fri</td><td>Rest</td><td>Strength C · short<br><span class="mono" style="font-size:11px">5:30–6:10pm</span></td></tr>'+
+  '<tr><td class="k">Sat</td><td><b>Long run</b><br><span class="mono" style="font-size:11px">start by 7:00</span></td><td>—</td></tr>'+
+  '<tr><td class="k">Sun</td><td>Rest</td><td>—</td></tr></table></div>'+
+  '<div class="note"><b>The rule everything falls out of:</b> the quality run, hockey and the long run never sit within 24 hours of each other. Sunday is rest specifically so Saturday-long → Sunday-off → Monday-quality has 48 hours in it. If you ever need to move something, check it against this and you will get the right answer without asking.</div>'+
+  '<h5>Tuesday morning is a primer, not a workout</h5>'+
+  '<p>Nothing hard before a game. The hip session plus light activation gets you loose and switched on for the evening at no cost. RPE 6 ceiling. It is also the best possible day for PT — it lands right before the highest-risk hip session of your week.</p>'+
+  '<h5>Before hockey starts (weeks 1–3)</h5>'+
+  '<p>No hockey until the week of <b>Sep 28</b>, so Tuesday evenings are free. Use them: twenty minutes with an empty bar practising whatever felt wrong on Monday. Three weeks of that before the schedule gets full is worth more than any program tweak.</p>'+
+  '<h5>The weekend flexes, Monday absorbs it</h5>'+
+  '<p>Long run Saturday by default, Sunday if the weekend goes sideways. If it lands Sunday, <b>Monday goes fully off</b> — not an easy run, off — and that week&rsquo;s quality work rides the back of the long run itself: last 15–20 minutes lifted to moderate. That is arguably more Robie-specific anyway.</p>')+
+
+ acc("Session A · Monday — upper bias",
+  '<p class="mono" style="font-size:12px;color:var(--mute)">~50 min · 5:30–6:20pm · warm up 5 min: bike or row easy, then arm circles and band pull-aparts</p>'+
+  liftTable("A")+
+  '<p>Upper-biased on purpose: you ran hard this morning. Blocks 2 and 4 sit between the columns shown — the app gives you the exact scheme on the day.</p>')+
+
+ acc("Session B · Wednesday — the heavy one",
+  '<p class="mono" style="font-size:12px;color:var(--mute)">~55 min · 5:30–6:25pm · warm up 6 min: bike, then bodyweight squats, glute bridges, band walks</p>'+
+  liftTable("B")+
+  '<p>A full day past hockey, three days clear of the long run — this is the only slot in your week where a heavy lower session doesn&rsquo;t collide with something. The last two exercises only appear in block 4 (weeks 13–17).</p>'+
+  '<div class="note red">Every squat and hinge here is capped at the depth where your pelvis stays neutral. Not "as low as you can go." Box squats to a target height are a good self-limiting tool while you learn where that is.</div>')+
+
+ acc("Session C · Friday — short",
+  '<p class="mono" style="font-size:12px;color:var(--mute)">~40 min · 5:30–6:10pm · warm up 4 min</p>'+
+  liftTable("C")+
+  '<p>Deliberately submaximal. The long run is tomorrow morning and it is the priority. If you are ever going to cut a session short, cut this one.</p>')+
+
+ acc("How the weight goes up",
+  '<div class="scrl"><table><tr><th>Weeks</th><th>Main lifts</th><th>Effort</th></tr>'+
+  '<tr><td class="v">1–4</td><td>3 × 10–12</td><td>RPE 6–7 — 3–4 reps left in the tank</td></tr>'+
+  '<tr><td class="v">5–8</td><td>4 × 8–10</td><td>RPE 7–8 — 2–3 left</td></tr>'+
+  '<tr><td class="v">9–12</td><td>4 × 5–6</td><td>RPE 8 — 2 left. Real strength work</td></tr>'+
+  '<tr><td class="v">13–17</td><td>4 × 5</td><td>RPE 8 + pogos and eccentrics Wednesday</td></tr></table></div>'+
+  '<h5>Double progression — the only rule you need</h5>'+
+  '<p>Hit the <b>top of the rep range on every working set, two sessions in a row</b>. Then add weight and drop back to the bottom of the range.</p>'+
+  '<ul><li>Upper body: <b>+5 lb</b> (so 20 lb dumbbells → 25 lb)</li><li>Lower body: <b>+10 lb</b> on the bar</li></ul>'+
+  '<p>Example: you press the 20s for 3×10 in week 1. Week 2 you get 3×12. Week 3 you get 3×12 again — that&rsquo;s two in a row, so week 4 you move to the 25s and start over at 3×10.</p>'+
+  '<div class="note grn"><b>Where this lands you.</b> At roughly one jump every three or four weeks across seventeen weeks, you finish the block pressing something like the 35s for reps and pulling 155–185 on the trap bar. Not impressive to anyone else. Completely transformative for a runner who has never lifted consistently — and that gap is exactly what the running-economy research is measuring.</div>'+
+  '<div class="note"><b>When a weight feels too light, it probably is.</b> The most common beginner mistake is not going too heavy — it is spending four months at the weight you started with because it feels productive. If you finish every set knowing you had five more, add weight the same session.</div>')+
+
+ acc("Your paces",
+  '<p>Anchored off 2:04 at Robie — about a 1:53 flat half, VDOT 39. You are detrained, so start at the slow end.</p>'+
+  '<div class="scrl"><table><tr><th>Zone</th><th>Pace</th><th>Feels like</th></tr>'+
+  '<tr><td class="k">Easy now</td><td class="v">10:15–11:00</td><td>Full sentences, boring on purpose</td></tr>'+
+  '<tr><td class="k">Easy by Dec</td><td class="v">9:45–10:30</td><td>Same effort, faster clock</td></tr>'+
+  '<tr><td class="k">Threshold</td><td class="v">8:25–8:40</td><td>Ten-word answers, not sentences</td></tr>'+
+  '<tr><td class="k">Strides</td><td class="v">~7:00 feel</td><td>Fast and loose, never a sprint</td></tr>'+
+  '<tr><td class="k">Hill sprints</td><td class="v">8–10s</td><td>~98% on 5–7% grade, walk all the way down</td></tr></table></div>'+
+  '<div class="note"><b>Week 7 re-anchors everything.</b> 15 min easy, then 20 min at the hardest pace you could hold for exactly twenty. Flat road. Average pace + 25–30 sec/mi is your new easy; the average itself is close to your new threshold.</div>')+
+
+ acc("Hip triage",
+  '<p>Labral pain is joint pain, not tendon pain. The tolerance is tighter than the &ldquo;run through a 5/10&rdquo; rule you will read online.</p>'+
+  '<div class="tri"><i style="background:var(--sage)"></i><div><b>0–1 · Green — progress</b><span>Gone within a few hours, nothing next morning, no clicking. Add load or range as planned.</span></div></div>'+
+  '<div class="tri"><i style="background:var(--gold)"></i><div><b>2–3 · Amber — hold</b><span>Or morning stiffness that clears by midday. Repeat this week&rsquo;s numbers instead of advancing. No new exercises.</span></div></div>'+
+  '<div class="tri"><i style="background:var(--clay)"></i><div><b>4 · Red — regress</b><span>New catching, locking or giving way. Pain still there next morning. Night ache. Character shifts from dull to sharp pinch. Drop back a phase and raise it at your next PT session — not in three weeks.</span></div></div>'+
+  '<div class="note red"><b>About hockey.</b> Skating is sustained deep hip flexion, and hard pivoting on a planted flexed hip is the single position most associated with labral irritation — it is the clinical impingement test. Not a reason to quit; a reason to name it. If a flare shows up, hockey is the first thing to look at, not the running.</div>')+
+
+ acc("What the hips don't get",
+  '<h5>Skip or modify</h5><ul><li>Squatting past pelvis-neutral — the butt-wink is your bony end range</li><li>Deep leg press, feet low</li><li>Box step-ups above knee height</li><li>Walking and deep lunges</li><li>Kneeling hip-flexor stretching, pigeon pose</li><li>Sit-ups and crunches</li><li>Hard pivoting on a planted flexed hip</li></ul>'+
+  '<h5>Reach for instead</h5><ul><li>Front or goblet squat over back squat</li><li>Trap-bar or sumo over conventional</li><li>Hip thrusts — extension, no flexion cost</li><li>Static split squats over walking lunges</li><li>Anti-rotation core: Pallof, dead bug, bird dog</li><li>Active hip-flexor strength, not passive stretch</li></ul>'+
+  '<div class="note">Nudge cadence up 5–10% over whatever it naturally is, measured on flat ground, with a watch alert. Not 180. Beyond 10% you just spend more energy.</div>')+
+
+ acc("Trail and power-hiking",
+  '<h5>Saturday migrates to dirt</h5><p>Weeks 1–4 stay on road while you rebuild. From week 5 the long run goes to the foothills — Ridge to Rivers starts at the end of your street. Softer surface, less repetitive loading, and Robie&rsquo;s back half is dirt, so the specificity is free.</p>'+
+  '<h5>Power-hiking is a trained skill</h5>'+
+  '<p>Above roughly 10–12% grade, most runners at your fitness move faster hiking with hands on quads than shuffle-running, at a lower heart rate. That is not quitting. In ultras it is the entire sport, and at Robie the steep pitch before Aldape is exactly where people burn the race.</p>'+
+  '<p><b>Train it:</b> on Thursday&rsquo;s climb and every trail Saturday, deliberately hike the steepest pitch — hands on quads, short quick steps, drive from the hip. Time it against running the same pitch once a month.</p>'+
+  '<div class="note"><b>Technical terrain comes later.</b> Uneven footing means unplanned hip rotation, the pattern your labrum likes least. Smooth, consistent-grade trail all winter. Rocky stuff in spring, once the strength block is behind you.</div>')+
+
+ acc("When you miss one",
+  '<p>You will miss sessions. The plan assumes it. What breaks people is what they do next.</p>'+
+  '<h5>Missed Monday&rsquo;s quality run</h5><p>Skip it, or take it on the back of the weekend long run. <b>Never move it to Tuesday or Wednesday</b> — Tuesday competes with hockey and Wednesday is eight hours after it.</p>'+
+  '<h5>Missed the long run</h5><p>Sunday at 80% of the planned time. If the whole weekend is gone, let it go and do <b>not</b> inflate next week — that spike is the best-evidenced way to get hurt.</p>'+
+  '<h5>Missed a lift</h5><p>Ten-minute minimum, same day, before you get home: goblet squat 2×10, push-up 2×10, DB row 2×10, dead bug 2×10. Tick the box. That is the whole rule.</p>'+
+  '<h5>Missed a week</h5><p>Repeat it rather than jumping forward. Three or more weeks off: go back two weeks and rebuild.</p>'+
+  '<div class="note grn"><b>Never miss twice.</b> One skipped session is a Tuesday. Two in a row is a new habit. Weeks 1–10 are supposed to feel effortful — automaticity takes about ten weeks and that is normal, not a sign the plan is wrong.</div>')+
+
+ acc("Winter, dark, sleep, fuel",
+  '<h5>The thing that actually breaks this</h5>'+
+  '<p>Up at 5:00, hockey some nights, gym others. Lights out by 9:30, and it is not optional — the plan is built on recovery you only get asleep. If bedtime slips past 10:30 more than twice a week, cut a session before you cut sleep.</p>'+
+  '<h5>December mornings</h5>'+
+  '<ul><li>Headlamp with a fresh battery, plus something reflective. Dark until past 8am.</li><li>Traction — Yaktrax or similar — in the car from November. Ice is the injury, not the cold.</li><li>Three layers, shell off for the hard part. Sweat trapped under a shell is what makes you cold afterwards.</li><li>Below freezing: warm up 15–18 minutes before anything hard.</li></ul>'+
+  '<div class="note">Ice beats every other consideration. Move hill sprints and threshold to a treadmill at 1% rather than risk a slip at speed. That is the correct call, not a compromise.</div>'+
+  '<h5>Fuel — only two things matter</h5>'+
+  '<p><b>Runs over 75 minutes:</b> 30–60g of carbs an hour, starting around 40 minutes in. Practise it on trail Saturdays. Gut training is real and takes months.</p>'+
+  '<p><b>The 30 minutes after lifting:</b> 30–40g protein plus carbs. You are asking a body to build muscle and aerobic capacity at once on limited hours — under-eating is the quietest way that fails.</p>')+
+
+ acc("Key dates and what comes after",
+  '<h5>Feb 15 2027, 12:00pm MT</h5><p>Robie registration, Presidents&rsquo; Day. 2,100 spots, historically gone in about ten minutes. <b>Set two alarms.</b> Everything else is downstream of this.</p>'+
+  '<h5>Jan 4 2027</h5><p>15-week Robie build. VO2max intervals enter here and not a day sooner. Downhill repeats start in March.</p>'+
+  '<h5>Apr 17 2027 — Robie</h5><p>Off ~27 mi/wk of base plus a real build, <b>sub-1:55 is a fair ask</b> — nine minutes on this year. Pace by effort to Aldape, hike the steep pitch, hold something back for a descent that will take more out of you than the climb did.</p>'+
+  '<h5>The marathon</h5>'+
+  '<p>Needs a fifth running day. Four gets you to the start line and not through mile 20. The fifth is Wednesday morning, easy — but it only goes in once Wednesday&rsquo;s lift is no longer the week&rsquo;s heaviest, or once hockey&rsquo;s season ends and Tuesday frees up.</p>'+
+  '<p>So: <b>Robie in April → three easy weeks → add Wednesday → build through summer → marathon in October.</b> City of Trees in Boise is the low-friction one. Pocatello in early September if you want flatter and faster.</p>'+
+  '<h5>Then trail ultras</h5><p>Sun Mountain 50K as the stepping stone, then White River 50 or Bighorn. Ultras are a volume problem and volume is what your schedule limits — solve days five and six before picking a date.</p>')+
+
+ acc("Where this came from",
+  '<p style="font-size:13px;color:var(--mute);line-height:1.6">Polarized distribution and the cost of crossing VT1 — Cerezuela-Espejo 2024 (<i>Sports Medicine</i>) and Rønnestad 2022, whose pyramidal→polarized sequencing is the shape of this block. Talk-test validity — Persinger 2004. Volume progression — Nielsen&rsquo;s systematic review (the 10% rule is not a real threshold; large single-week spikes are) and the 0.8–1.3 acute:chronic band. Conservative FAI management — the Warwick Agreement, the 2023 non-operative outcomes review, Grimaldi &amp; Fearon <i>JOSPT</i> 2015. Strength for runners — 2024 <i>Sports Medicine</i> meta-analysis (heavy ≥80% 1RM; none of it moves VO2max) and a 2025 RCT on durability where economy decay over 90 minutes fell from 4.7% to 2.1%. Concurrent training — 2025 Frontiers review: AMPK needs ~3 hours to clear, so a 5am/5:30pm split has no interference cost. Downhill — 2020 <i>Sports Medicine</i> review: knee-extensor strength drops 14–55% after a downhill bout and stays down 4–5 days. Adherence — Milne, Orbell &amp; Sheeran 2002; Lally 2010.</p>');
+ document.querySelectorAll("#p-plan .ac-h").forEach(function(b){b.onclick=function(){b.parentNode.classList.toggle("open")}});
+}
+
+/* ═══ WIRING ══════════════════════════════════ */
+var TABS=[["today","Today","M3 12h4l3-9 4 18 3-9h4"],["week","Week","M3 5h18M3 12h18M3 19h18"],
+ ["prog","Log","M4 20V9M10 20V4M16 20v-7M22 20h-20"],["coach","Coach","M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"],
+ ["plan","Plan","M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"]];
+document.getElementById("nav").innerHTML=TABS.map(function(t,i){
+ return '<button class="nb'+(i===0?" on":"")+'" data-t="'+t[0]+'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="'+t[2]+'"/></svg><span>'+t[1]+'</span></button>'}).join("");
+document.getElementById("nav").addEventListener("click",function(e){
+ var b=e.target.closest(".nb");if(!b)return;
+ document.querySelectorAll(".nb").forEach(function(x){x.classList.toggle("on",x===b)});
+ document.querySelectorAll(".pane").forEach(function(p){p.classList.remove("on")});
+ document.getElementById("p-"+b.dataset.t).classList.add("on");window.scrollTo(0,0);
+ if(b.dataset.t==="prog")rProg();});
+document.getElementById("h-wk").textContent="Week "+(CUR+1)+" of 17";
+document.getElementById("h-ph").textContent=PH[W[CUR].p].n+" · block "+W[CUR].b;
+document.getElementById("h-cd").textContent=Math.max(0,Math.round((RACE-T)/864e5));
+
+document.getElementById("p-today").addEventListener("click",function(e){
+ var d=e.target.closest("[data-done]");
+ if(d){var k=d.dataset.done;if(st.checks[k])delete st.checks[k];else st.checks[k]=true;save();rToday();return}
+ var x=e.target.closest("[data-ex]");
+ if(x){var kk=x.dataset.ex,o=st.lift[kk]||(st.lift[kk]={});
+  if(x.checked)o.d=true;else delete o.d;
+  if(!Object.keys(o).length)delete st.lift[kk];
+  save();x.closest(".ex").classList.toggle("dn",!!x.checked);return}
+ var h=e.target.closest("#f-hip .sc");if(h){setf("hip",+h.dataset.h);return}
+ var f=e.target.closest("#f-feel .sc");if(f){setf("feel",+f.dataset.f);return}});
+document.getElementById("p-today").addEventListener("input",function(e){
+ var t=e.target;
+ if(t.dataset&&t.dataset.exw!=null){var kk=t.dataset.exw,o=st.lift[kk]||(st.lift[kk]={});
+  if(t.value==="")delete o.w;else o.w=t.value;
+  if(!Object.keys(o).length)delete st.lift[kk];save();return}
+ if(t.id==="f-mi")setf("mi",t.value===""?null:+t.value);
+ else if(t.id==="f-min")setf("min",t.value===""?null:+t.value);
+ else if(t.id==="f-note")setf("note",t.value);});
+function setf(k,v){
+ if(!LIVE)return;
+ var key="w"+CUR+"d"+TD,o=st.days[key]||(st.days[key]={});
+ if(v===null||v==="")delete o[k];else o[k]=v;
+ if(!Object.keys(o).length)delete st.days[key];
+ save();
+ var s=document.getElementById("f-saved");if(s){s.textContent="saved";clearTimeout(s._t);s._t=setTimeout(function(){s.textContent=""},1400)}
+ if(k==="hip"||k==="feel"){var wrap=document.getElementById(k==="hip"?"f-hip":"f-feel");
+  wrap.querySelectorAll(".sc").forEach(function(b){b.classList.toggle("on",+(b.dataset.h!=null?b.dataset.h:b.dataset.f)===v)})}}
+
+rToday();rWeek();rProg();rCoach();rPlan();
+
+(async function(){
+ var db=null;try{db=window.claude&&claude.use?await claude.use("db"):null}catch(e){}
+ if(!db)return;
+ try{ref=db.doc("progress/log");
+  ref.onSnapshot(function(s){
+   var v=s.exists?s.data():null;
+   if(v&&!s.metadata.hasPendingWrites){st={checks:v.checks||{},days:v.days||{},lift:v.lift||{}};lwrite();rToday();rWeek();rProg()}
+   else if(!s.exists&&(Object.keys(st.checks).length||Object.keys(st.days).length||Object.keys(st.lift).length))save();
+   document.getElementById("sdot").classList.add("on");
+   document.getElementById("smsg").textContent="synced across devices";
+  },function(){ref=null;document.getElementById("smsg").textContent="local only"});
+ }catch(e){ref=null}
+})();
+</script>
+
+</body>
+</html>
