@@ -4,9 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#0C1014">
+<meta name="theme-color" content="#E9EBEE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1014" media="(prefers-color-scheme: dark)">
 <meta name="description" content="A 17-week base training block for Race to Robie Creek 2027 - running, strength and hip-safe loading built around a real schedule.">
 <title>Rocky Canyon</title>
+<link rel="canonical" href="https://angularpirate.github.io/rocky-canyon/">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rocky Canyon">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rocky Canyon">
+<meta property="og:title" content="Rocky Canyon — 17-week base block">
+<meta property="og:description" content="A 17-week base training block for Race to Robie Creek 2027 - running, strength and hip-safe loading built around a real schedule.">
+<meta property="og:url" content="https://angularpirate.github.io/rocky-canyon/">
+<meta property="og:image" content="https://angularpirate.github.io/rocky-canyon/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
 
@@ -768,5 +788,13 @@ rToday();rWeek();rProg();rCoach();rPlan();
 })();
 </script>
 
+<script>
+/* Offline support. Registered only over https/localhost; harmless if unsupported. */
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  });
+}
+</script>
 </body>
 </html>

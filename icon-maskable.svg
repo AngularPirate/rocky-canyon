@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Rocky Canyon">
+  <rect width="512" height="512" fill="#0C1014"/>
+  <g transform="translate(100,100) scale(13)">
+    <path d="M3 12h4l3-9 4 18 3-9h4" fill="none" stroke="#E3A93E"
+          stroke-linecap="round" stroke-linejoin="round" style="stroke-width:21"/>
+  </g>
+</svg>
