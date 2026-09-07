@@ -24,12 +24,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # enablement:true turns GitHub Pages on via the API, so the repo
-      # owner does not have to flip it in Settings by hand.
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
