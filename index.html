@@ -129,6 +129,12 @@ main{max-width:600px;margin:0 auto;padding:15px 15px 96px}
 .tick:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .exhd{display:flex;gap:8px;align-items:center;padding:9px 11px;background:var(--panel-2);border-bottom:1px solid var(--soft)}
 .exhd .eb{flex:1}
+.vsw{display:flex;gap:4px;flex:0 0 auto}
+.vsw button{padding:4px 9px;border-radius:6px;border:1px solid var(--line);background:var(--panel);
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--mute);cursor:pointer}
+.vsw button.on{background:var(--clay);border-color:var(--clay);color:#fff}
+.vsw button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 /* log form */
 .lg{padding:14px 16px;background:var(--panel-2);border-top:1px solid var(--soft)}
 .rowf{display:flex;gap:9px;margin-bottom:10px}
@@ -274,7 +280,15 @@ A:{n:"Strength A — upper bias",dur:"~50 min",tm:"5:30–6:20pm",
  {n:"Barbell hip thrust",s:["3×12","4×10","4×8","4×8"],w:"Empty 45 lb bar + pad",r:"75s",c:"Your single best hip exercise. Chin tucked, ribs down, squeeze one full second at the top."},
  {n:"Lateral raise + hammer curl",s:["3×12 each","3×12","3×12","3×12"],w:"8 lb / 15 lb",r:"60s",c:"Superset — no rest between the two. Raise to shoulder height only."},
  {n:"Side-lying abduction → monster walks",s:["3×15","3×15","3×20","3×20"],w:"Bodyweight, then band",r:"45s",c:"Never let the top leg drop past your body's midline."},
- {n:"Dead bug + Pallof press",s:["3×10 each","3×10","3×12","3×12"],w:"Light band or cable",r:"45s",c:"Ribs pinned down. No sit-ups, ever."}]},
+ {n:"Dead bug + Pallof press",s:["3×10 each","3×10","3×12","3×12"],w:"Light band or cable",r:"45s",c:"Ribs pinned down. No sit-ups, ever."}],
+ hm:[
+ {n:"Push-up",s:["3\u00d78\u201312","3\u00d710\u201315","4\u00d78\u201312","4\u00d710\u201315"],w:"Bodyweight",r:"90s",c:"Hands under shoulders, body one straight line. Too hard? Hands on the kitchen counter \u2014 that is a real push-up, not a lesser one."},
+ {n:"Single-arm DB row",s:["3\u00d712 each","3\u00d715","4\u00d712","4\u00d715"],w:"10 lb DB",r:"75s",c:"Hand and knee on the couch. Elbow to your back pocket, pause 2s at the top. If your torso twists, momentum is doing the work."},
+ {n:"DB Romanian deadlift",s:["3\u00d712","3\u00d715","4\u00d712","4\u00d715"],w:"10 lb DBs",r:"90s",c:"Hips back, not down. DBs graze your thighs. Stop where your low back wants to round \u2014 that is your range, and finding it is the whole point of this lift."},
+ {n:"Glute bridge",s:["3\u00d715","3\u00d720","4\u00d715","4\u00d720"],w:"DBs resting on hips",r:"60s",c:"Hip thrust stand-in. Chin tucked, ribs down, squeeze one full second at the top."},
+ {n:"Lateral raise + hammer curl",s:["3\u00d712 each","3\u00d715","3\u00d715","3\u00d715"],w:"10 lb DBs",r:"60s",c:"Superset \u2014 no rest between the two. Raise to shoulder height only."},
+ {n:"Side-lying abduction",s:["3\u00d715 each","3\u00d720","3\u00d720","3\u00d725"],w:"Bodyweight",r:"45s",c:"Never let the top leg drop past your body\u2019s midline."},
+ {n:"Dead bug + bird dog",s:["3\u00d710 each","3\u00d710","3\u00d712","3\u00d712"],w:"Bodyweight",r:"45s",c:"Ribs pinned to the floor. No sit-ups, ever."}]},
 B:{n:"Strength B — the heavy one",dur:"~55 min",tm:"5:30–6:25pm",
  ex:[
  {n:"Goblet squat",s:["3×10","4×8","4×6","4×5"],w:"30 lb DB or KB",r:"90s",c:"Stop at the depth where your pelvis stays neutral. Earn depth before you earn weight."},
@@ -285,7 +299,15 @@ B:{n:"Strength B — the heavy one",dur:"~55 min",tm:"5:30–6:25pm",
  {n:"Slider hamstring curl",s:["3×6","3×8","3×8","3×8"],w:"Bodyweight",r:"60s",c:"Four seconds sliding out, hands help you back. This is Nordic curl prep."},
  {n:"Copenhagen plank",s:["3×20s each","3×30s","3×30s","3×40s"],w:"Bent knee → long lever",r:"45s",c:"Bent knee for at least six weeks. Regress instantly if the groin pinches."}],
  b4:[{n:"Pogo hops",s:["—","—","—","3×10"],w:"Bodyweight",r:"60s",c:"Stiff ankles, minimal knee bend, quick off the floor."},
-     {n:"Eccentric step-down",s:["—","—","—","3×8 each"],w:"Low box, bodyweight",r:"60s",c:"Four seconds down. This is what saves your quads on Robie's descent."}]},
+     {n:"Eccentric step-down",s:["—","—","—","3×8 each"],w:"Low box, bodyweight",r:"60s",c:"Four seconds down. This is what saves your quads on Robie's descent."}],
+ hm:[
+ {n:"Goblet squat",s:["3\u00d712","3\u00d715","4\u00d712","4\u00d715"],w:"One 10 lb DB at the chest",r:"90s",c:"Stop at the depth where your pelvis stays neutral. With 10 lb, depth and control are the only things on offer \u2014 which is exactly what week one is for."},
+ {n:"DB deadlift",s:["3\u00d710","3\u00d712","4\u00d710","4\u00d712"],w:"10 lb DBs at your sides",r:"90s",c:"Trap-bar stand-in. DBs outside your feet, push the floor away. Same depth cap as everything else."},
+ {n:"Split squat",s:["3\u00d710 each","3\u00d712","4\u00d710","4\u00d712"],w:"Bodyweight \u2192 10 lb DBs",r:"75s",c:"Static, not walking. Back foot on the floor, not elevated \u2014 rear-foot-elevated comes once this is easy. Torso tall."},
+ {n:"Seated DB overhead press",s:["3\u00d712","3\u00d715","4\u00d712","4\u00d715"],w:"10 lb DBs",r:"90s",c:"Ribs down. Don\u2019t arch your back to get it up."},
+ {n:"DB pullover",s:["3\u00d712","3\u00d715","4\u00d712","4\u00d715"],w:"One 10 lb DB",r:"75s",c:"Lat pulldown stand-in. Lie on the floor, arms nearly straight. The stretch belongs in your lats, not your low back."},
+ {n:"Single-leg glute bridge",s:["3\u00d710 each","3\u00d712","3\u00d712","3\u00d715"],w:"Bodyweight",r:"60s",c:"Hamstring work without sliders. Drive through the heel, keep your hips level."},
+ {n:"Side plank",s:["3\u00d720s each","3\u00d730s","3\u00d730s","3\u00d740s"],w:"Bodyweight",r:"45s",c:"Plain side plank. Copenhagen comes later, once you have months of this behind you."}]},
 C:{n:"Strength C — short",dur:"~40 min",tm:"5:30–6:10pm",
  ex:[
  {n:"Incline DB press",s:["3×10","3×10","4×8","4×8"],w:"20 lb DBs",r:"75s",c:"Low incline, around 30°."},
@@ -294,7 +316,15 @@ C:{n:"Strength C — short",dur:"~40 min",tm:"5:30–6:10pm",
  {n:"Low step-up",s:["3×10 each","3×10","3×10","3×10"],w:"Bodyweight → 15 lb DBs",r:"60s",c:"Knee-height box or lower. Drive through the heel, don't push off the back foot."},
  {n:"Face pull + pushdown + curl",s:["3 rounds ×12","3×12","3×12","3×12"],w:"Light",r:"60s",c:"Giant set, no rest inside a round."},
  {n:"Calf raise — straight then bent knee",s:["3×15 + 3×15","3×15","3×20","3×20"],w:"Bodyweight → 25 lb",r:"45s",c:"Robie descent insurance. Full range, pause at the bottom."},
- {n:"Bird dog + side plank",s:["3×8 each + 3×25s","3×8","3×10","3×10"],w:"Bodyweight",r:"45s",c:""}]}};
+ {n:"Bird dog + side plank",s:["3×8 each + 3×25s","3×8","3×10","3×10"],w:"Bodyweight",r:"45s",c:""}],
+ hm:[
+ {n:"Incline push-up",s:["3\u00d712","3\u00d715","4\u00d712","4\u00d715"],w:"Hands on a counter or stair",r:"75s",c:"Higher hands are easier. Lower the surface as you get stronger \u2014 that is the progression."},
+ {n:"Single-arm DB row",s:["3\u00d712 each","3\u00d715","4\u00d712","4\u00d715"],w:"10 lb DB",r:"60s",c:"Hand and knee on the couch. Don\u2019t twist to finish the rep."},
+ {n:"Single-leg RDL",s:["3\u00d78 each","3\u00d710","3\u00d710","3\u00d712"],w:"One 10 lb DB",r:"60s",c:"Balance first, load second. Hips square to the floor \u2014 imagine headlights on your hip bones pointing straight down."},
+ {n:"Low step-up",s:["3\u00d710 each","3\u00d712","3\u00d712","3\u00d715"],w:"Bottom stair, bodyweight",r:"60s",c:"Knee height or lower. Drive through the heel, don\u2019t push off the back foot."},
+ {n:"Rear delt fly + hammer curl",s:["3\u00d712 each","3\u00d715","3\u00d715","3\u00d715"],w:"10 lb DBs",r:"60s",c:"Superset. Thumbs up on the fly, no shrugging."},
+ {n:"Calf raise \u2014 straight then bent knee",s:["3\u00d715 + 3\u00d715","3\u00d720","3\u00d720","3\u00d725"],w:"Stair edge, bodyweight",r:"45s",c:"Robie descent insurance. Full range, pause at the bottom."},
+ {n:"Bird dog + side plank",s:["3\u00d78 each + 3\u00d725s","3\u00d710","3\u00d710","3\u00d712"],w:"Bodyweight",r:"45s",c:""}]}};
 
 var BLKN=["Foundation · RPE 6–7","Build · RPE 7–8","Heavy · RPE 8","Heavy + eccentric · RPE 8"];
 
@@ -381,8 +411,11 @@ function ws(i){return ad(S,i*7)}
 function ds(d){return (d.getMonth()+1)+"/"+d.getDate()}
 function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 
-function lifts(sk,blk){var L=LIFT[sk],a=L.ex.slice();
- if(sk==="B"&&blk===4)a=a.concat(L.b4); return a}
+function lifts(sk,blk,ven){var L=LIFT[sk];
+ if(ven==="home")return L.hm.slice();
+ var a=L.ex.slice(); if(sk==="B"&&blk===4)a=a.concat(L.b4); return a}
+function venOf(id){return st.ven&&st.ven[id]==="home"?"home":"gym"}
+function exKey(i,sk,ven,j){return "w"+i+sk+(ven==="home"?"h":"")+j}
 
 function sess(i,d){
  var w=W[i],o=[],id="w"+i+"d"+d,hk=i>=HOCK;
@@ -417,19 +450,23 @@ function sess(i,d){
 }
 
 /* ═══ STATE ═══════════════════════════════════ */
-var st={checks:{},days:{},lift:{}},ref=null,tmr=null,VIEW=CUR;
+var st={checks:{},days:{},lift:{},ven:{}},ref=null,tmr=null,VIEW=CUR;
 function lread(){try{return JSON.parse(localStorage.getItem("rc3")||"null")}catch(e){return null}}
 function lwrite(){try{localStorage.setItem("rc3",JSON.stringify(st))}catch(e){}}
-var _l=lread();if(_l&&_l.checks)st={checks:_l.checks||{},days:_l.days||{},lift:_l.lift||{}};
+var _l=lread();if(_l&&_l.checks)st={checks:_l.checks||{},days:_l.days||{},lift:_l.lift||{},ven:_l.ven||{}};
 function save(){lwrite();if(!ref)return;clearTimeout(tmr);
- tmr=setTimeout(function(){ref.set({checks:st.checks,days:st.days,lift:st.lift,updated:new Date().toISOString()}).catch(function(){})},700)}
-function lastW(i,sk,j){for(var k=i-1;k>=0;k--){var v=st.lift["w"+k+sk+j];if(v&&v.w)return{w:v.w,k:k}}return null}
+ tmr=setTimeout(function(){ref.set({checks:st.checks,days:st.days,lift:st.lift,ven:st.ven,updated:new Date().toISOString()}).catch(function(){})},700)}
+function lastW(i,sk,ven,j){for(var k=i-1;k>=0;k--){var v=st.lift[exKey(k,sk,ven,j)];if(v&&v.w)return{w:v.w,k:k}}return null}
 
 /* ═══ TODAY ═══════════════════════════════════ */
 function exHTML(i,o){
- var arr=lifts(o.L,o.blk),h='<div class="exs"><div class="exhd"><span class="eb">Block '+o.blk+' · RPE '+["6–7","7–8","8","8"][o.blk-1]+'</span><span class="eb" style="white-space:nowrap">lb</span></div>';
+ var ven=venOf(o.id),arr=lifts(o.L,o.blk,ven);
+ var h='<div class="exs"><div class="exhd"><span class="eb">Block '+o.blk+' · RPE '+["6–7","7–8","8","8"][o.blk-1]+'</span>'+
+  '<div class="vsw" data-vs="'+o.id+'"><button type="button" data-ven="gym"'+(ven==="gym"?' class="on"':'')+'>Gym</button>'+
+  '<button type="button" data-ven="home"'+(ven==="home"?' class="on"':'')+'>Home</button></div></div>';
+ if(ven==="home")h+='<div class="exc" style="padding:9px 11px 0">Dumbbell and bodyweight version. Same six patterns, so nothing is missed — reps and tempo carry the progression because the load is fixed.</div>';
  arr.forEach(function(x,j){
-  var key="w"+i+o.L+j,v=st.lift[key]||{},lw=lastW(i,o.L,j);
+  var key=exKey(i,o.L,ven,j),v=st.lift[key]||{},lw=lastW(i,o.L,ven,j);
   h+='<div class="ex'+(v.d?" dn":"")+'"><input type="checkbox" class="tick" data-ex="'+key+'"'+(v.d?" checked":"")+'>'+
    '<div><div class="exn">'+esc(x.n)+'</div><div class="exm">'+esc(x.s[o.blk-1])+' · '+esc(x.r)+' rest</div>'+
    (x.c?'<div class="exc">'+esc(x.c)+'</div>':'')+
@@ -475,11 +512,11 @@ function rToday(){
 /* ═══ WEEK ════════════════════════════════════ */
 var OPEN={};
 function exRef(i,o){
- var arr=lifts(o.L,o.blk);
+ var ven=venOf(o.id),arr=lifts(o.L,o.blk,ven);
  return '<div class="exs" style="margin-top:9px">'+
-  '<div class="exhd"><span class="eb">Block '+o.blk+' · RPE '+["6–7","7–8","8","8"][o.blk-1]+'</span></div>'+
+  '<div class="exhd"><span class="eb">Block '+o.blk+' · RPE '+["6–7","7–8","8","8"][o.blk-1]+(ven==="home"?" · home":"")+'</span></div>'+
   arr.map(function(x,j){
-   var lw=lastW(i,o.L,j),v=st.lift["w"+i+o.L+j]||{};
+   var lw=lastW(i,o.L,ven,j),v=st.lift[exKey(i,o.L,ven,j)]||{};
    return '<div class="exr"><div class="exn">'+esc(x.n)+'</div>'+
     '<div class="exm">'+esc(x.s[o.blk-1])+' · '+esc(x.r)+' rest</div>'+
     (x.c?'<div class="exc">'+esc(x.c)+'</div>':'')+
@@ -569,13 +606,19 @@ function ctx(){
  var i=CUR,w=W[i],lines=[],lw=[];
  for(var k=Math.max(0,i-2);k<=i;k++)for(var d=0;d<7;d++){var v=st.days["w"+k+"d"+d];if(!v)continue;
   lines.push("W"+(k+1)+" "+DAY[d]+": "+(v.mi?v.mi+"mi ":"")+(v.min?v.min+"min ":"")+(v.hip!=null?"hip"+v.hip+" ":"")+(v.feel?"felt"+v.feel+"/5 ":"")+(v.note||""))}
- ["A","B","C"].forEach(function(sk){lifts(sk,w.b).forEach(function(x,j){var p=lastW(i+1,sk,j);if(p)lw.push(sk+" "+x.n+": "+p.w+" lb (wk "+(p.k+1)+")")})});
+ ["A","B","C"].forEach(function(sk){["gym","home"].forEach(function(vn){
+  lifts(sk,w.b,vn).forEach(function(x,j){var p=lastW(i+1,sk,vn,j);
+   if(p)lw.push(sk+(vn==="home"?" (home)":"")+" "+x.n+": "+p.w+" lb (wk "+(p.k+1)+")")})})});
+ var hv=[];for(var d2=0;d2<7;d2++)sess(i,d2).forEach(function(o){if(o.L&&venOf(o.id)==="home")hv.push(DAY[d2]+" "+o.L)});
  return "You are Jared's running and strength coach. Answer in 2–4 sentences, direct and specific. No hedging, no bullet lists unless asked. If something is a bad idea, say so plainly.\n\n"+
  "ATHLETE: 28, Boise ID. Bilateral hip labral tears (2023, non-surgical, weekly PT). Robie Creek April 2026 in 2:04 (13.1mi, 2100ft up and down) — about a 1:53 flat half, VDOT 39 — then a long break. NEW to consistent lifting and self-describes as weak: started at 20–25 lb dumbbells for pressing. Goals in order: crush the Robie PR April 17 2027, first marathon, then trail ultras.\n"+
  "SCHEDULE: runs mornings only, showered and ready by 7am, out 5:20 on key days. Remote work 7:30am–5/5:30pm MT. Thursday 5:50–7am run club at Military Reserve (hilly trail, easy). Hockey Tuesday nights starting the week of Sep 28 — counted as hard, and NOTHING hard Tuesday mornings (PT + light primer only, to loosen him up for the game). Gym 5–10 min away, evenings.\n"+
  "WEEK: Mon quality run AM + Strength A (upper bias) PM / Tue PT+primer AM + hockey PM / Wed optional easy 30-40min shakeout AM + Strength B (heavy lower) PM / Thu run club AM / Fri rest AM + Strength C (short) PM / Sat long run / Sun REST. Weekends variable: long run can move to Sunday, in which case Monday goes fully off and the quality work rides the back of the long run.\n"+
  "RULE THAT GOVERNS EVERYTHING: the quality run, hockey and the long run never sit within 24h of each other.\n"+
  "PACES: easy 10:15–11:00 now, 9:45–10:30 by Dec. Threshold 8:25–8:40. Hip rule: joint pain ≤2/10 green, 2–4 hold, >4 or clicking/night pain/next-morning pain = regress a phase.\n"+
+ "EQUIPMENT: gym membership, plus one pair of 10 lb dumbbells at home. Every strength session can be switched to a home variant in the app \u2014 dumbbell and bodyweight, same six movement patterns. Home variants progress by reps and tempo, not load, because 10 lb is fixed. He should buy heavier dumbbells (a pair of 20s and 30s, or adjustables) by about week 4 or home training stalls.\n"+
+ "FORM: detrained \u2014 has not lifted consistently in over a year and is honest about not knowing proper form on most lifts. He is learning as he goes. Lead with technique cues over load. Never assume he knows a movement name.\n"+
+ (hv.length?"SWITCHED TO HOME THIS WEEK: "+hv.join(", ")+"\n":"")+
  "LIFTING: double progression. Hit the top of the rep range on every working set two sessions running, then +5 lb upper / +10 lb lower and back to the bottom of the range. Depth capped at pelvis-neutral on all squats and hinges.\n"+
  "NOW: week "+(i+1)+" of 17 ("+w.f+"), phase "+PH[w.p].n+", block "+w.b+" lifting ("+BLKN[w.b-1]+"), "+w.t+" planned minutes (~"+w.mi+" mi). Today is "+T.toDateString()+".\n"+
  "THIS WEEK: Mon — "+w.qa[0]+". Wed — "+w.wed[0]+". Thu — "+(w.thu||THU)[0]+". Sat — "+w.sat[0]+". Sun — "+w.sun[0]+".\n"+
@@ -602,6 +645,10 @@ function acc(t,b,o){return '<div class="c'+(o?" open":"")+'"><button class="ac-h
 function liftTable(sk){var L=LIFT[sk],a=L.ex.concat(L.b4||[]);
  return '<div class="scrl"><table><tr><th>Exercise</th><th>Blk 1</th><th>Blk 3</th><th>Start</th></tr>'+
  a.map(function(x){return '<tr><td class="k">'+esc(x.n)+'</td><td class="v">'+esc(x.s[0])+'</td><td class="v">'+esc(x.s[2])+'</td><td class="v">'+esc(x.w)+'</td></tr>'}).join("")+'</table></div>'}
+
+function homeTable(sk){var a=LIFT[sk].hm;
+ return '<div class="scrl"><table><tr><th>Exercise</th><th>Wk 1\u20134</th><th>Load</th></tr>'+
+ a.map(function(x){return '<tr><td class="k">'+esc(x.n)+'</td><td class="v">'+esc(x.s[0])+'</td><td class="v">'+esc(x.w)+'</td></tr>'}).join("")+'</table></div>'}
 
 function rPlan(){
  document.getElementById("p-plan").innerHTML=
@@ -652,6 +699,16 @@ function rPlan(){
   '<p class="mono" style="font-size:12px;color:var(--mute)">~40 min · 5:30–6:10pm · warm up 4 min</p>'+
   liftTable("C")+
   '<p>Deliberately submaximal. The long run is tomorrow morning and it is the priority. If you are ever going to cut a session short, cut this one.</p>')+
+
+ acc("Training at home",
+  '<p>Every strength session has a <b>Home</b> version. Tap <b>Gym / Home</b> at the top of the exercise list on the Today tab and the whole session swaps \u2014 same six patterns, so switching never leaves a hole in the week.</p>'+
+  '<p>Weights log separately for each, so a 10 lb home row never gets confused with a 25 lb gym row when the app shows you what you lifted last time.</p>'+
+  '<h5>Session A at home</h5>'+homeTable("A")+
+  '<h5>Session B at home</h5>'+homeTable("B")+
+  '<h5>Session C at home</h5>'+homeTable("C")+
+  '<div class="note"><b>Reps carry the progression here, not weight.</b> With one fixed pair of dumbbells you cannot add load, so the home schemes climb in reps and add tempo \u2014 three seconds down, a pause at the top. That works for a while and then stops working.</div>'+
+  '<div class="note red"><b>Buy heavier dumbbells by about week 4.</b> A pair of 20s and a pair of 30s, or one adjustable pair, covers this whole block. Ten pounds is a fine place to learn a pattern and a bad place to spend seventeen weeks \u2014 the point of the block is to get stronger, and at some stage that needs load.</div>'+
+  '<div class="note grn"><b>Home is not the lesser option while you are learning.</b> No one is waiting for your rack, so you can take three minutes between sets and film every one. Weeks 1\u20134 are a skills block; your living room is arguably the better classroom.</div>')+
 
  acc("How the weight goes up",
   '<div class="scrl"><table><tr><th>Weeks</th><th>Main lifts</th><th>Effort</th></tr>'+
@@ -744,6 +801,12 @@ document.getElementById("h-ph").textContent=PH[W[CUR].p].n+" · block "+W[CUR].b
 document.getElementById("h-cd").textContent=Math.max(0,Math.round((RACE-T)/864e5));
 
 document.getElementById("p-today").addEventListener("click",function(e){
+ var vb=e.target.closest("[data-ven]");
+ if(vb){var wrap=vb.closest("[data-vs]");
+  if(wrap){var sid=wrap.dataset.vs;
+   if(vb.dataset.ven==="home")st.ven[sid]="home";else delete st.ven[sid];
+   save();rToday();rWeek()}
+  return}
  var d=e.target.closest("[data-done]");
  if(d){var k=d.dataset.done;if(st.checks[k])delete st.checks[k];else st.checks[k]=true;save();rToday();return}
  var x=e.target.closest("[data-ex]");
@@ -779,8 +842,8 @@ rToday();rWeek();rProg();rCoach();rPlan();
  try{ref=db.doc("progress/log");
   ref.onSnapshot(function(s){
    var v=s.exists?s.data():null;
-   if(v&&!s.metadata.hasPendingWrites){st={checks:v.checks||{},days:v.days||{},lift:v.lift||{}};lwrite();rToday();rWeek();rProg()}
-   else if(!s.exists&&(Object.keys(st.checks).length||Object.keys(st.days).length||Object.keys(st.lift).length))save();
+   if(v&&!s.metadata.hasPendingWrites){st={checks:v.checks||{},days:v.days||{},lift:v.lift||{},ven:v.ven||{}};lwrite();rToday();rWeek();rProg()}
+   else if(!s.exists&&(Object.keys(st.checks).length||Object.keys(st.days).length||Object.keys(st.lift).length||Object.keys(st.ven).length))save();
    document.getElementById("sdot").classList.add("on");
    document.getElementById("smsg").textContent="synced across devices";
   },function(){ref=null;document.getElementById("smsg").textContent="local only"});
