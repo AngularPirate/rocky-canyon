@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "note": "Actual sessions as performed, not as planned. `exercise` values are ids or aliases from exercises.json. weight is per-hand for dumbbells.",
+  "sessions": [
+    {
+      "date": "2026-09-07",
+      "week": 1,
+      "day": "Mon",
+      "venue": "home",
+      "planned": "Strength A — upper bias (gym)",
+      "actual": "Home shoulders + back + PT hip work",
+      "blocks": [
+        {
+          "name": "PT / hip",
+          "entries": [
+            { "exercise": "clamshell", "sets": 3, "reps": 30, "weight": null },
+            { "exercise": "reverse-clamshell", "sets": 3, "reps": 30, "weight": null },
+            { "exercise": "hip-stab", "sets": 1, "reps": 30, "weight": null, "needsReview": true },
+            { "exercise": "adductor-plank", "sets": 2, "reps": 10, "weight": null }
+          ]
+        },
+        {
+          "name": "Shoulders",
+          "entries": [
+            { "exercise": "arnold-press", "sets": 4, "reps": 12, "weight": 10, "unit": "lb" },
+            { "exercise": "lateral-raise", "sets": 3, "reps": 12, "weight": 10, "unit": "lb" },
+            { "exercise": "front-raise", "sets": 3, "reps": 12, "weight": 10, "unit": "lb" },
+            { "exercise": "shoulder-press", "sets": 4, "reps": 15, "weight": 10, "unit": "lb" }
+          ]
+        },
+        {
+          "name": "Back",
+          "entries": [
+            { "exercise": "single-arm-db-row", "sets": 3, "reps": 20, "weight": 10, "unit": "lb" },
+            { "exercise": "single-arm-db-row-floor", "sets": 2, "reps": 12, "weight": 10, "unit": "lb" }
+          ]
+        }
+      ],
+      "totals": { "workingSets": 28, "hipSets": 9, "shoulderSets": 14, "backSets": 5 },
+      "notRun": ["db-rdl", "db-pullover", "prone-floor-row"],
+      "coachNotes": [
+        "First session back after 1+ year detrained. High set count for a first day.",
+        "10 lb drove reps to 12-30 across the board — confirms the load ceiling; buy heavier DBs.",
+        "Shoulder block is front-delt heavy: arnold-press + shoulder-press + front-raise are three overlapping vertical pushes. No rear-delt work.",
+        "Back was rows only — both entries are the same movement pattern. No hinge, no vertical pull.",
+        "adductor-plank came from his PT, so the Copenhagen family is already cleared. Earlier assumption that it was too advanced was wrong."
+      ]
+    }
+  ]
+}
