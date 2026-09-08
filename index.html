@@ -134,6 +134,29 @@ main{max-width:600px;margin:0 auto;padding:15px 15px 96px}
   font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;
   text-transform:uppercase;color:var(--mute);cursor:pointer}
 .vsw button.on{background:var(--clay);border-color:var(--clay);color:#fff}
+.totw{border-bottom:1px solid var(--soft)}
+.toth,.totr{display:grid;grid-template-columns:1fr 54px 54px;align-items:center;padding:8px 14px;gap:6px}
+.toth{background:var(--panel-2);border-bottom:1px solid var(--soft)}
+.toth span:not(:first-child){text-align:right}
+.totr{border-bottom:1px solid var(--soft)}
+.totr:last-child{border-bottom:0}
+.totr b{font-size:13.5px;font-weight:600}
+.totr span{font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--mute);
+  font-variant-numeric:tabular-nums;text-align:right}
+.totr span.hit{color:var(--sage);font-weight:600}
+.totr span.miss{color:var(--mute)}
+.actb{margin-top:11px;border:1px solid var(--sage-ln);border-radius:10px;overflow:hidden;background:var(--sage-bg)}
+.actb .ah{display:flex;gap:8px;align-items:center;padding:8px 11px;border-bottom:1px solid var(--sage-ln)}
+.actb .ah .eb{color:var(--sage);flex:1}
+.actg{padding:9px 11px;border-bottom:1px solid var(--sage-ln)}
+.actg:last-child{border-bottom:0}
+.actg .gn{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:5px}
+.acti{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:13.8px;color:var(--ink-2)}
+.acti b{font-weight:600;color:var(--ink);flex:1;min-width:0}
+.acti span{font-family:"IBM Plex Mono",monospace;font-size:12.5px;white-space:nowrap;color:var(--ink-2)}
+.actm{display:flex;gap:8px;align-items:flex-start;padding:7px 0}
+.actm b{font-size:13px;font-weight:600;color:var(--sage);line-height:1.35;flex:1}
 .vsw button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 /* log form */
 .lg{padding:14px 16px;background:var(--panel-2);border-top:1px solid var(--soft)}
@@ -450,13 +473,64 @@ function sess(i,d){
 }
 
 /* ═══ STATE ═══════════════════════════════════ */
-var st={checks:{},days:{},lift:{},ven:{}},ref=null,tmr=null,VIEW=CUR;
+var st={checks:{},days:{},lift:{},ven:{},act:{}},ref=null,tmr=null,VIEW=CUR;
 function lread(){try{return JSON.parse(localStorage.getItem("rc3")||"null")}catch(e){return null}}
 function lwrite(){try{localStorage.setItem("rc3",JSON.stringify(st))}catch(e){}}
-var _l=lread();if(_l&&_l.checks)st={checks:_l.checks||{},days:_l.days||{},lift:_l.lift||{},ven:_l.ven||{}};
+var _l=lread();if(_l&&_l.checks)st={checks:_l.checks||{},days:_l.days||{},lift:_l.lift||{},ven:_l.ven||{},act:_l.act||{}};
 function save(){lwrite();if(!ref)return;clearTimeout(tmr);
- tmr=setTimeout(function(){ref.set({checks:st.checks,days:st.days,lift:st.lift,ven:st.ven,updated:new Date().toISOString()}).catch(function(){})},700)}
+ tmr=setTimeout(function(){ref.set({checks:st.checks,days:st.days,lift:st.lift,ven:st.ven,act:st.act,updated:new Date().toISOString()}).catch(function(){})},700)}
 function lastW(i,sk,ven,j){for(var k=i-1;k>=0;k--){var v=st.lift[exKey(k,sk,ven,j)];if(v&&v.w)return{w:v.w,k:k}}return null}
+
+/* ═══ TOTALS + LOGGED SESSIONS ═════════ */
+/* Planned counts come from the program; done counts credit either a ticked
+   planned session or a freeform session logged for that day, never both. */
+function isRun(o){return o.c==="easy"||o.c==="quality"||o.c==="long"}
+function wkTotals(i){
+ var pl={runs:0,mi:W[i].mi,str:0,pt:0,core:0},dn={runs:0,mi:0,str:0,pt:0,core:0};
+ for(var d=0;d<7;d++){
+  var items=sess(i,d),key="w"+i+"d"+d,a=st.act[key],tg=(a&&a.t)||[];
+  var cRun=false,cStr=false,cPt=false;
+  items.forEach(function(o){
+   if(!o.id)return;
+   if(isRun(o)){pl.runs++;if(st.checks[o.id])cRun=true}
+   if(o.L){pl.str++;pl.core++;if(st.checks[o.id])cStr=true}
+   if(o.c==="PT"||o.c==="primer"){pl.pt++;if(st.checks[o.id])cPt=true}});
+  if(cRun||tg.indexOf("run")>=0)dn.runs++;
+  if(cStr||tg.indexOf("strength")>=0)dn.str++;
+  if(cPt||tg.indexOf("pt")>=0)dn.pt++;
+  if(cStr||tg.indexOf("core")>=0)dn.core++;
+  var dv=st.days[key];if(dv&&dv.mi)dn.mi+=+dv.mi;}
+ return {pl:pl,dn:dn};
+}
+function totHTML(i){
+ var t=wkTotals(i);
+ function row(lb,p,d,dec){
+  var pv=dec?(+p).toFixed(1):p,dv=dec?(+d).toFixed(1):d;
+  return '<div class="totr"><b>'+lb+'</b><span>'+pv+'</span>'+
+   '<span class="'+(d>=p&&p>0?"hit":"miss")+'">'+dv+'</span></div>'}
+ return '<div class="totw"><div class="toth"><span class="eb">This week</span>'+
+  '<span class="eb">plan</span><span class="eb">done</span></div>'+
+  row("Runs",t.pl.runs,t.dn.runs)+row("Miles",t.pl.mi,t.dn.mi,1)+
+  row("Strength",t.pl.str,t.dn.str)+row("PT",t.pl.pt,t.dn.pt)+
+  row("Core",t.pl.core,t.dn.core)+'</div>';
+}
+function actSets(a){var n=0;(a.b||[]).forEach(function(g){(g.e||[]).forEach(function(x){n+=(+x.s||0)})});return n}
+function actSummary(k){var a=st.act[k];if(!a)return"";
+ var names=(a.b||[]).map(function(g){return g.n}).join(" \u00b7 ");
+ return names+" \u2014 "+actSets(a)+" sets"}
+function actHTML(k){
+ var a=st.act[k];if(!a)return'';
+ var h='<div class="actb"><div class="ah"><span class="eb">What you actually did</span>'+
+  (a.m?'<span class="eb" style="color:var(--sage)">'+esc(a.m)+' min</span>':'')+'</div>';
+ (a.b||[]).forEach(function(g){
+  h+='<div class="actg"><div class="gn">'+esc(g.n)+'</div>';
+  (g.e||[]).forEach(function(x){
+   var d=(x.s||"")+"\u00d7"+(x.r||"")+(x.w?" @ "+x.w+" lb":"");
+   h+='<div class="acti"><b>'+esc(x.n)+'</b><span>'+esc(d)+'</span></div>'});
+  h+='</div>'});
+ if(a.note)h+='<div class="actg"><div class="acti" style="color:var(--ink-2)">'+esc(a.note)+'</div></div>';
+ return h+'</div>';
+}
 
 /* ═══ TODAY ═══════════════════════════════════ */
 function exHTML(i,o){
@@ -493,6 +567,8 @@ function rToday(){
    (o.p?'<p>'+esc(o.p)+'</p>':'')+'</div></div>'+
    (o.L?exHTML(i,o):'')+
    (o.id?'<button class="btn '+(dn?'is':'go')+'" data-done="'+o.id+'">'+(dn?'✓ Done':'Mark done')+'</button>':'')+'</div>'});
+ var _ak="w"+i+"d"+d;
+ if(st.act[_ak])h+='<div class="sess">'+actHTML(_ak)+'</div>';
  if(w.nt)h+='<div class="sess" style="background:var(--panel-2)"><div class="eb" style="color:var(--gold);margin-bottom:5px">This week</div><p style="margin:0;font-size:14px;color:var(--ink-2);line-height:1.5">'+esc(w.nt)+'</p></div>';
  h+='</div>';
  if(!LIVE){e.innerHTML=h;return}
@@ -528,7 +604,7 @@ function rWeek(){
  var h='<div class="c"><div class="wknav">'+
   '<button id="wprev"'+(i===0?" disabled":"")+' aria-label="Previous week"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>'+
   '<div class="mid"><b>Week '+(i+1)+' · '+esc(w.f)+'</b><span>'+ds(a)+'–'+ds(b)+' · '+w.t+" min · ~"+w.mi+' mi</span></div>'+
-  '<button id="wnext"'+(i===16?" disabled":"")+' aria-label="Next week"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button></div>';
+  '<button id="wnext"'+(i===16?" disabled":"")+' aria-label="Next week"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button></div>'+totHTML(i);
  for(var d=0;d<7;d++){
   var it=sess(i,d),td=(i===CUR&&d===TD);
   h+='<div class="dayr'+(td?" tdy":"")+'"><div class="dl"><b>'+DAY[d]+'</b><span class="mono">'+ds(ad(a,d))+'</span></div><div class="di">';
@@ -542,6 +618,8 @@ function rWeek(){
      (o.L?exRef(i,o):'')+
      (o.id?'<button class="mini '+(dn?'is':'go')+'" data-done="'+o.id+'">'+(dn?'✓ Done':'Mark done')+'</button>':'')+
     '</div>'});
+  var _wk="w"+i+"d"+d;
+  if(st.act[_wk])h+='<div class="actm"><span class="chip k-str">logged</span><b>'+esc(actSummary(_wk))+'</b></div>';
   h+='</div></div>'}
  if(w.nt)h+='<div style="padding:13px 16px;background:var(--panel-2);border-top:1px solid var(--soft)"><div class="eb" style="color:var(--gold);margin-bottom:4px">Note</div><p style="margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.47">'+esc(w.nt)+'</p></div>';
  document.getElementById("p-week").innerHTML=h+'</div>';
@@ -619,6 +697,10 @@ function ctx(){
  "EQUIPMENT: gym membership, plus one pair of 10 lb dumbbells at home. Every strength session can be switched to a home variant in the app \u2014 dumbbell and bodyweight, same six movement patterns. Home variants progress by reps and tempo, not load, because 10 lb is fixed. He should buy heavier dumbbells (a pair of 20s and 30s, or adjustables) by about week 4 or home training stalls.\n"+
  "FORM: detrained \u2014 has not lifted consistently in over a year and is honest about not knowing proper form on most lifts. He is learning as he goes. Lead with technique cues over load. Never assume he knows a movement name.\n"+
  (hv.length?"SWITCHED TO HOME THIS WEEK: "+hv.join(", ")+"\n":"")+
+ (function(){var out=[];for(var d3=0;d3<7;d3++){var k3="w"+i+"d"+d3,a3=st.act[k3];if(!a3)continue;
+   out.push(DAY[d3]+": "+(a3.b||[]).map(function(g){return g.n+" ["+(g.e||[]).map(function(x){
+    return x.n+" "+x.s+"x"+x.r+(x.w?"@"+x.w+"lb":"")}).join(", ")+"]"}).join(" | "))}
+  return out.length?"SESSIONS AS ACTUALLY PERFORMED (logged by voice, may differ from the plan):\n"+out.join("\n")+"\n":""})()+
  "LIFTING: double progression. Hit the top of the rep range on every working set two sessions running, then +5 lb upper / +10 lb lower and back to the bottom of the range. Depth capped at pelvis-neutral on all squats and hinges.\n"+
  "NOW: week "+(i+1)+" of 17 ("+w.f+"), phase "+PH[w.p].n+", block "+w.b+" lifting ("+BLKN[w.b-1]+"), "+w.t+" planned minutes (~"+w.mi+" mi). Today is "+T.toDateString()+".\n"+
  "THIS WEEK: Mon — "+w.qa[0]+". Wed — "+w.wed[0]+". Thu — "+(w.thu||THU)[0]+". Sat — "+w.sat[0]+". Sun — "+w.sun[0]+".\n"+
@@ -709,6 +791,18 @@ function rPlan(){
   '<div class="note"><b>Reps carry the progression here, not weight.</b> With one fixed pair of dumbbells you cannot add load, so the home schemes climb in reps and add tempo \u2014 three seconds down, a pause at the top. That works for a while and then stops working.</div>'+
   '<div class="note red"><b>Buy heavier dumbbells by about week 4.</b> A pair of 20s and a pair of 30s, or one adjustable pair, covers this whole block. Ten pounds is a fine place to learn a pattern and a bad place to spend seventeen weeks \u2014 the point of the block is to get stronger, and at some stage that needs load.</div>'+
   '<div class="note grn"><b>Home is not the lesser option while you are learning.</b> No one is waiting for your rack, so you can take three minutes between sets and film every one. Weeks 1\u20134 are a skills block; your living room is arguably the better classroom.</div>')+
+
+ acc("Logging by voice",
+  '<p>You do not type any of this. Tell Claude in chat what you did, in whatever words come out \u2014 <i>&ldquo;three by thirty clamshells, four by twelve arnold press with the tens, three by twenty single arm rows&rdquo;</i> \u2014 and it normalises that into exercises and writes it straight into this app.</p>'+
+  '<h5>What shows up</h5>'+
+  '<ul><li>A <b>What you actually did</b> card on the Today tab for that date, with every set, rep and weight.</li>'+
+  '<li>A <b>logged</b> marker on that day in the Week tab.</li>'+
+  '<li>The week&rsquo;s <b>done</b> column updates \u2014 runs, miles, strength, PT and core.</li>'+
+  '<li>The Coach sees it, so it answers against what you really did rather than what was written down.</li></ul>'+
+  '<h5>It records the session you did, not the one that was planned</h5>'+
+  '<p>If the plan said Strength A at the gym and you did shoulders and rows at home with the tens, the log says shoulders and rows at home with the tens. The plan is the intention; this is the record. Where they disagree, the record wins.</p>'+
+  '<div class="note"><b>Names are matched, not invented.</b> A vocabulary of every exercise you have used lives in the repo, with the shorthand you actually say mapped to each one \u2014 &ldquo;sa row&rdquo;, &ldquo;clamshells&rdquo;, &ldquo;bulgarians&rdquo;, &ldquo;pogos&rdquo;. New movements get added the first time you mention them.</div>'+
+  '<div class="note grn"><b>Correcting it is also just talking.</b> &ldquo;That was fifteen reps not twelve&rdquo; or &ldquo;drop the last set&rdquo; rewrites the entry. Nothing here needs a keyboard.</div>')+
 
  acc("How the weight goes up",
   '<div class="scrl"><table><tr><th>Weeks</th><th>Main lifts</th><th>Effort</th></tr>'+
@@ -842,8 +936,8 @@ rToday();rWeek();rProg();rCoach();rPlan();
  try{ref=db.doc("progress/log");
   ref.onSnapshot(function(s){
    var v=s.exists?s.data():null;
-   if(v&&!s.metadata.hasPendingWrites){st={checks:v.checks||{},days:v.days||{},lift:v.lift||{},ven:v.ven||{}};lwrite();rToday();rWeek();rProg()}
-   else if(!s.exists&&(Object.keys(st.checks).length||Object.keys(st.days).length||Object.keys(st.lift).length||Object.keys(st.ven).length))save();
+   if(v&&!s.metadata.hasPendingWrites){st={checks:v.checks||{},days:v.days||{},lift:v.lift||{},ven:v.ven||{},act:v.act||{}};lwrite();rToday();rWeek();rProg()}
+   else if(!s.exists&&(Object.keys(st.checks).length||Object.keys(st.days).length||Object.keys(st.lift).length||Object.keys(st.ven).length||Object.keys(st.act).length))save();
    document.getElementById("sdot").classList.add("on");
    document.getElementById("smsg").textContent="synced across devices";
   },function(){ref=null;document.getElementById("smsg").textContent="local only"});
